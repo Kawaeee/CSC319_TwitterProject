@@ -6,9 +6,7 @@ public class Tweet {
     private Date date;
     private String text;
 
-    /////////////////////////////////////////////////////////////
-
-    /////////////////////////////////////////////**getter setter
+    //*Getter-Setter Methods
     public String getName() {
         return name;
     }
