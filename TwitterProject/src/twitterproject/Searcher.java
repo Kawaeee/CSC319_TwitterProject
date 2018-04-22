@@ -15,17 +15,21 @@ public class Searcher {
     private File file;
     ConfigurationBuilder obj;
     ArrayList<String> data = new ArrayList<>();
+    String word;
 
+    /*
     public Searcher() {
         this.obj = new ConfigurationBuilder();
           this.obj.setDebugEnabled(true)
                 //key;
     }
+     */
 
     public void search(String keyword) throws TwitterException {
         TwitterFactory tf = new TwitterFactory(obj.build());
         twitter4j.Twitter twitter = tf.getInstance();
         Query query = new Query(keyword);
+        word = keyword;
         QueryResult result;
         result = twitter.search(query);
         List<Status> tweets = result.getTweets();
@@ -36,9 +40,11 @@ public class Searcher {
     }
 
     public void printResult() {
-        for(int i =0; i<data.size(); i++){
-            System.out.println(data.get(i));
-            System.out.println("");
+        for (int i = 0; i < data.size(); i++) {
+            //System.out.println(data.get(i));
+            //System.out.println("");
         }
+        System.out.println("Keyword : "+word);
+        System.out.println("Amount : "+data.size());
     }
 }
