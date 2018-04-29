@@ -12,7 +12,7 @@ public class File {
     private String line;
     private int count;
     private Scanner sc;
-    private File file;
+    private Tweet tweet;
 
     public boolean openFile(String filename) {
         try {
@@ -26,7 +26,7 @@ public class File {
     }
 
     public void findKeyword(String keyword) {
-             
+        
     }
 
     public void addTweet(Tweet tweet) {

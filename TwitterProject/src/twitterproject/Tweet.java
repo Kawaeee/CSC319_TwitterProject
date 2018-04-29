@@ -3,18 +3,16 @@ package twitterproject;
 import java.util.Date;
 
 public class Tweet {
-    private String name;
+
     private String username;
     private Date date;
     private String text;
 
     //*Getter-Setter Methods
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public Tweet(String username, Date date, String text) {
+        this.username = username;
+        this.date = date;
+        this.text = text;
     }
 
     public String getUsername() {
