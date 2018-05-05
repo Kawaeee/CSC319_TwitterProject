@@ -11,5 +11,6 @@ public class Twitter {
         Searcher searcher = new Searcher();
         searcher.search(sc.next());
         searcher.printResult();
+        //searcher.getRatelimit();
     }
 }
