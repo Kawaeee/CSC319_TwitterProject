@@ -9,13 +9,13 @@ public class Twitter {
         Scanner sc = new Scanner(System.in);
         //File file = new File();
         SearchType searcher = new SearchType();
-
+        searcher.work();
         //FileSearch file = new FileSearch();
         //file.openFile("");
         //file.search("dog");
 
         //APISearch searcher = new APISearch();
-        //searcher.search(sc.next());
+        //searcher.search(sc.nextLine());
         //searcher.printResult();
         //searcher.getRatelimit();
     }

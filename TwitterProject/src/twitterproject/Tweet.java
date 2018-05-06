@@ -7,12 +7,22 @@ public class Tweet {
     private String username;
     private Date date;
     private String text;
+    private String url;
 
     //*Getter-Setter Methods
-    public Tweet(String username, Date date, String text) {
+    public Tweet(String username, Date date, String text,String url) {
         this.username = username;
         this.date = date;
         this.text = text;
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getUsername() {

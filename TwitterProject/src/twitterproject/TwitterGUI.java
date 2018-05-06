@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class TwitterGUI extends javax.swing.JFrame {
 
     FileSearch file = new FileSearch();
-    APISearch searcher = new APISearch();
+    //APISearch searcher = new APISearch();
     ArrayList<String> data = new ArrayList<>();
 
     /**
@@ -104,7 +104,7 @@ public class TwitterGUI extends javax.swing.JFrame {
     private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
         try {
             String key = keyword.getText();
-            searcher.search(key);
+            //searcher.search(key);
 
         } catch (Exception ex) {
             ex.printStackTrace();

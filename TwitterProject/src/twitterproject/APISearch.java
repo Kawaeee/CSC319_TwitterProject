@@ -1,8 +1,13 @@
 package twitterproject;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.RateLimitStatus;
@@ -14,11 +19,11 @@ import twitter4j.conf.ConfigurationBuilder;
 public class APISearch extends SearchType {
 
     ConfigurationBuilder obj;
-    ArrayList<Tweet> data = new ArrayList<Tweet>();
-    String word;
+    //ArrayList<Tweet> data = new ArrayList<Tweet>();
     Query query;
     QueryResult result;
     List<Status> tweets;
+    String url;
 
     /*
     public APISearch() {
@@ -27,6 +32,22 @@ public class APISearch extends SearchType {
                 //key;
     }
      */
+    public APISearch() throws TwitterException, IOException {
+        this.obj = new ConfigurationBuilder();
+        this.obj.setDebugEnabled(true)
+                .setOAuthConsumerKey("")
+                .setOAuthConsumerSecret("")
+                .setOAuthAccessToken("")
+                .setOAuthAccessTokenSecret("");
+        sc = new Scanner(System.in);
+        checkConnection();
+        System.out.println("-------------------------------------");
+        System.out.print("Input your keyword : ");
+        search(sc.nextLine());
+        printResult();
+
+    }
+
     public void search(String keyword) throws TwitterException {
         TwitterFactory tf = new TwitterFactory(obj.build());
         twitter4j.Twitter twitter = tf.getInstance();
@@ -38,7 +59,8 @@ public class APISearch extends SearchType {
         result = twitter.search(query);
         tweets = result.getTweets();
         for (Status tweet : tweets) {
-            data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText()));
+            url = "https://twitter.com/" + tweet.getUser().getScreenName() + "/status/" + tweet.getId();
+            data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText(), url));
         }
 
         while (result.hasNext()) {
@@ -50,19 +72,32 @@ public class APISearch extends SearchType {
             tweets = result.getTweets();
 
             for (Status tweet : tweets) {
-                data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText()));
+                url = "https://twitter.com/" + tweet.getUser().getScreenName() + "/status/" + tweet.getId();
+                data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText(), url));
             }
         }
     }
 
+    @Override
     public void printResult() {
-        for (int i = 0; i < data.size(); i++) {
-            System.out.println(data.get(i).getUsername() + " --- " + data.get(i).getText() + " --- " + data.get(i).getDate());
-            System.out.println("");
+        super.printResult();
+    }
+
+    public boolean checkConnection() throws IOException {
+        try {
+            final URL check = new URL("http://www.google.com");
+            final URLConnection conn = check.openConnection();
+            conn.connect();
+            conn.getInputStream().close();
+            System.out.println("Connection Connected");
+            return true;
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            System.out.println("Connection Failed");
+            System.exit(-1);
+            return false;
         }
-        System.out.println("");
-        System.out.println("Keyword : " + word);
-        System.out.println("Amount : " + data.size());
     }
 
     public void getRatelimit() {
