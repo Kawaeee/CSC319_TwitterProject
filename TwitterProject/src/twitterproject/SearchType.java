@@ -11,6 +11,7 @@ public class SearchType {
     public ArrayList<Tweet> data = new ArrayList<Tweet>();
     public String word;
     String filename;
+    String check;
 
     public SearchType() {
         // add something
@@ -33,7 +34,8 @@ public class SearchType {
         }
     }
 
-    public void work() throws TwitterException, IOException {
+    public void startsearch() throws TwitterException, IOException {
+        data = new ArrayList<Tweet>(); //clear output
         System.out.println("-------------------------------------");
         System.out.println("Twitter Search");
         System.out.println("Choose 1 for Existing file search");
@@ -41,6 +43,24 @@ public class SearchType {
         System.out.println("-------------------------------------");
         System.out.print("Choose one : ");
         setSearchType(sc.nextInt());
+    }
+
+    public void continuesearch() throws TwitterException, IOException {
+        System.out.println("-------------------------------------");
+        System.out.println("Continue Searching? Y/N");
+        check = sc.next().toUpperCase();
+        if (check.equalsIgnoreCase("Y")) {
+            startsearch();
+        } else if (check.equalsIgnoreCase("N")) {
+            System.out.println("-------------------------------------");
+            System.out.println("Thank for using Twitter Search");
+            System.out.println("-------------------------------------");
+        } else {
+            System.out.println("-------------------------------------");
+            System.out.println("----------Invalid Input!-------------");
+            System.out.println("Thank for using Twitter Search");
+            System.out.println("-------------------------------------");
+        }
     }
 
     public void printResult() {

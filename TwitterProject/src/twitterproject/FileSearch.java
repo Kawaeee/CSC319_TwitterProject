@@ -4,6 +4,8 @@ package twitterproject;
 import java.util.Scanner;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import twitter4j.TwitterException;
 //import java.util.Date;
 
 public class FileSearch extends SearchType {
@@ -15,14 +17,14 @@ public class FileSearch extends SearchType {
     //private Date date;
     private int count;
 
-    public FileSearch() {
+    public FileSearch() throws TwitterException, IOException {
         sc = new Scanner(System.in);
         System.out.print("Input your file path : ");
         openFile(sc.nextLine());
         System.out.println("-------------------------------------");
         System.out.print("Input your keyword : ");
         search(sc.nextLine());
-
+        super.continuesearch();
     }
 
     public boolean openFile(String filename) {

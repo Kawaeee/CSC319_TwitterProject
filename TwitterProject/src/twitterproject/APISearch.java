@@ -34,8 +34,7 @@ public class APISearch extends SearchType {
      */
     public APISearch() throws TwitterException, IOException {
         this.obj = new ConfigurationBuilder();
-        this.obj.setDebugEnabled(true)
-                .setOAuthConsumerKey("")
+        this.obj.setOAuthConsumerKey("")
                 .setOAuthConsumerSecret("")
                 .setOAuthAccessToken("")
                 .setOAuthAccessTokenSecret("");
@@ -45,7 +44,7 @@ public class APISearch extends SearchType {
         System.out.print("Input your keyword : ");
         search(sc.nextLine());
         printResult();
-
+        super.continuesearch();
     }
 
     public void search(String keyword) throws TwitterException {

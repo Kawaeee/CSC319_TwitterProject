@@ -1,15 +1,16 @@
 package twitterproject;
 
+import java.io.IOException;
 import java.util.Scanner;
 import twitter4j.TwitterException;
 
 public class Twitter {
 
-    public static void main(String[] args) throws TwitterException {
+    public static void main(String[] args) throws TwitterException, IOException {
         Scanner sc = new Scanner(System.in);
         //File file = new File();
         SearchType searcher = new SearchType();
-        searcher.work();
+        searcher.startsearch();
         //FileSearch file = new FileSearch();
         //file.openFile("");
         //file.search("dog");
