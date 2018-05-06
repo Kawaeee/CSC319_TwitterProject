@@ -28,12 +28,58 @@ public class SearchType {
             System.out.println("-------------------------------------");
             System.out.println("API search");
             System.out.println("-------------------------------------");
+            System.out.println("Option");
+            System.out.println("1 for Only Tweets");
+            System.out.println("2 for Tweets and Replies");
+            System.out.println("3 for Tweets and Retweets");
+            System.out.println("Other numbers for All Tweets,Retweets,Replies");
+            System.out.print("Input your option : ");
+            //optionSearch(sc.nextInt());
             APISearch x = new APISearch();
         } else {
             System.out.println("Invalid Input");
         }
     }
 
+    /*
+    public void optionSearch(int option) throws TwitterException, IOException {
+        APISearch searcher = new APISearch();
+        System.out.print(sc.nextLine()); //clear input
+        String[] modifier = new String[]{" +exclude:retweets +exclude:replies", " +exclude:retweets", " +exclude:replies"};
+        if (option == 1) {
+            System.out.println("-------------------------------------");
+            System.out.println("Only Tweets");
+            System.out.println("-------------------------------------");
+            System.out.print("Input your keyword : ");
+            searcher.search(sc.nextLine() + modifier[0]);
+            searcher.printResult();
+            searcher.continuesearch();
+        } else if (option == 2) {
+            System.out.println("-------------------------------------");
+            System.out.println("Tweets and Replies");
+            System.out.println("-------------------------------------");
+            System.out.print("Input your keyword : ");
+            searcher.search(sc.nextLine() + modifier[1]);
+            searcher.printResult();
+            searcher.continuesearch();
+        } else if (option == 3) {
+            System.out.println("-------------------------------------");
+            System.out.println("Tweets and Retweets");
+            System.out.println("-------------------------------------");
+            System.out.print("Input your keyword : ");
+            searcher.search(sc.nextLine() + modifier[2]);
+            searcher.printResult();
+            searcher.continuesearch();
+        } else {
+            System.out.println("-------------------------------------");
+            System.out.println("All Tweets,Retweets,Replies");
+            System.out.println("-------------------------------------");
+            System.out.print("Input your keyword : ");
+            searcher.search(sc.nextLine());
+            searcher.printResult();
+            searcher.continuesearch();
+        }
+    }*/
     public void startsearch() throws TwitterException, IOException {
         data = new ArrayList<Tweet>(); //clear output
         System.out.println("-------------------------------------");

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class TwitterGUI extends javax.swing.JFrame {
 
-    FileSearch file = new FileSearch();
+    //FileSearch file = new FileSearch();
     //APISearch searcher = new APISearch();
     ArrayList<String> data = new ArrayList<>();
 
