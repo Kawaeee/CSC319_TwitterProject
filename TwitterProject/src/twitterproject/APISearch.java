@@ -13,13 +13,12 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class APISearch extends SearchType {
 
-    public static int count;
-    private FileSearch file;
     ConfigurationBuilder obj;
     ArrayList<Tweet> data = new ArrayList<Tweet>();
     String word;
     Query query;
     QueryResult result;
+    List<Status> tweets;
 
     /*
     public APISearch() {
@@ -37,13 +36,12 @@ public class APISearch extends SearchType {
         //query.setLang("en");
         word = keyword;
         result = twitter.search(query);
-        List<Status> tweets = result.getTweets();
+        tweets = result.getTweets();
         for (Status tweet : tweets) {
             data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText()));
         }
 
-        while (result.hasNext())//there is more pages to load
-        {
+        while (result.hasNext()) {
             if (result.hasNext() == false) {
                 break;
             }

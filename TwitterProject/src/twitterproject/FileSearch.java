@@ -5,14 +5,11 @@ import java.util.Scanner;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 
-public class FileSearch extends SearchType{
+public class FileSearch extends SearchType {
 
-    private String name;
-    private ArrayList<String> data;
+    ArrayList<Tweet> data = new ArrayList<Tweet>();
     private String line;
-    private int count;
     private Scanner sc;
-    private Tweet tweet;
 
     public boolean openFile(String filename) {
         try {
@@ -21,15 +18,21 @@ public class FileSearch extends SearchType{
             return true;
         } catch (FileNotFoundException catcher) {
             System.out.println("Error," + filename + " not Found.");
+            catcher.printStackTrace();
             return false;
         }
     }
 
-    public void findKeyword(String keyword) {
-        
-    }
+    public void search(String keyword) {
+        while (sc.hasNext()) {
+            line = sc.nextLine().toLowerCase().toString();
+            if (line.contains(keyword)) {
+                //data.add();
+                System.out.println(line);
+            }
+            System.out.println("Total tweets about " + keyword + " is " + data.size());
 
-    public void addTweet(Tweet tweet) {
+        }
 
     }
 }
