@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 
-public class File {
+public class FileSearch extends SearchType{
 
     private String name;
     private ArrayList<String> data;

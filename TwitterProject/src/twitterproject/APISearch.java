@@ -11,16 +11,18 @@ import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
-public class Searcher {
+public class APISearch extends SearchType {
 
     public static int count;
-    private File file;
+    private FileSearch file;
     ConfigurationBuilder obj;
     ArrayList<Tweet> data = new ArrayList<Tweet>();
     String word;
+    Query query;
+    QueryResult result;
 
     /*
-    public Searcher() {
+    public APISearch() {
         this.obj = new ConfigurationBuilder();
           this.obj.setDebugEnabled(true)
                 //key;
@@ -29,12 +31,11 @@ public class Searcher {
     public void search(String keyword) throws TwitterException {
         TwitterFactory tf = new TwitterFactory(obj.build());
         twitter4j.Twitter twitter = tf.getInstance();
-        Query query = new Query(keyword);
+        query = new Query(keyword);
         query.setCount(100);
-        query.setLocale("th");
+        //query.setLocale("th");
         //query.setLang("en");
         word = keyword;
-        QueryResult result;
         result = twitter.search(query);
         List<Status> tweets = result.getTweets();
         for (Status tweet : tweets) {

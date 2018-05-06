@@ -6,16 +6,14 @@
 package twitterproject;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author User
  */
 public class TwitterGUI extends javax.swing.JFrame {
 
-    File file = new File();
-    Searcher searcher = new Searcher();
+    FileSearch file = new FileSearch();
+    APISearch searcher = new APISearch();
     ArrayList<String> data = new ArrayList<>();
 
     /**
