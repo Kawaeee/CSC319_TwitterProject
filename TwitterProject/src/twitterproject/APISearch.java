@@ -24,13 +24,6 @@ public class APISearch extends SearchType {
     List<Status> tweets;
     String url;
 
-    /*
-    public APISearch() {
-        this.obj = new ConfigurationBuilder();
-          this.obj.setDebugEnabled(true)
-                //key;
-    }
-     */
     public APISearch() throws TwitterException, IOException {
 
         this.obj = new ConfigurationBuilder();
@@ -44,11 +37,12 @@ public class APISearch extends SearchType {
         System.out.println("-------------------------------------");
         checkConnection();
         System.out.println("-------------------------------------");
-        System.out.println("Option");
+        System.out.println("Option Search");
         System.out.println("1 for Only Tweets");
         System.out.println("2 for Tweets and Replies");
         System.out.println("3 for Tweets and Retweets");
         System.out.println("Other numbers for All Tweets,Retweets,Replies");
+        System.out.println("-------------------------------------");
         System.out.print("Input your option : ");
         optionSearch(sc.nextInt());
         this.printResult();
@@ -63,6 +57,7 @@ public class APISearch extends SearchType {
         word = keyword;
         result = twitter.search(query);
         tweets = result.getTweets();
+
         for (Status tweet : tweets) {
             url = "https://twitter.com/" + tweet.getUser().getScreenName() + "/status/" + tweet.getId();
             data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText(), url));
@@ -124,6 +119,25 @@ public class APISearch extends SearchType {
                 super.continuesearch();
                 break;
         }
+    }
+
+    /*
+     All of these words: word1 word2
+     Any of these words: word3 word4
+     None of these words: word5
+     From these accounts: user1 user2
+     Mentioning these accounts: user3
+     Query query = new Query("word1 word2 word3 OR word4 -word5 from:user1 OR from:user2 @user3");
+     */
+    public void advancedSearch() {
+        System.out.println("-------------------------------------");
+        System.out.println("Advanced Search");
+        System.out.println("All of these words : ");
+        System.out.println("Any of these words : ");
+        System.out.println("None of these words : ");
+        System.out.println("From these accounts : ");
+        System.out.println("Mentioning these accounts: : ");
+        System.out.println("-------------------------------------");
     }
 
     @Override

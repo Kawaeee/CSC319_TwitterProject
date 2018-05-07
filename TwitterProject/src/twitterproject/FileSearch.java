@@ -35,7 +35,6 @@ public class FileSearch extends SearchType {
             return true;
         } catch (FileNotFoundException catcher) {
             System.out.println("Error," + filename + " not Found.");
-            catcher.printStackTrace();
             System.exit(-1);
             return false;
         }
