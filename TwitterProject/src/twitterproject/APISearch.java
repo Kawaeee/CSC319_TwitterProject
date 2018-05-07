@@ -38,8 +38,18 @@ public class APISearch extends SearchType {
                 .setOAuthConsumerSecret("")
                 .setOAuthAccessToken("")
                 .setOAuthAccessTokenSecret("");
-        //search(sc.nextLine());
+
+        System.out.println("-------------------------------------");
+        System.out.println("API search");
+        System.out.println("-------------------------------------");
         checkConnection();
+        System.out.println("-------------------------------------");
+        System.out.println("Option");
+        System.out.println("1 for Only Tweets");
+        System.out.println("2 for Tweets and Replies");
+        System.out.println("3 for Tweets and Retweets");
+        System.out.println("Other numbers for All Tweets,Retweets,Replies");
+        System.out.print("Input your option : ");
         optionSearch(sc.nextInt());
         this.printResult();
         super.continuesearch();
@@ -50,8 +60,6 @@ public class APISearch extends SearchType {
         twitter4j.Twitter twitter = tf.getInstance();
         query = new Query(keyword);
         query.setCount(100);
-        //query.setLocale("th");
-        //query.setLang("en");
         word = keyword;
         result = twitter.search(query);
         tweets = result.getTweets();
@@ -78,38 +86,43 @@ public class APISearch extends SearchType {
     public void optionSearch(int option) throws TwitterException, IOException {
         System.out.print(sc.nextLine()); //clear input
         String[] modifier = new String[]{" +exclude:retweets +exclude:replies", " +exclude:retweets", " +exclude:replies"};
-        if (option == 1) {
-            System.out.println("-------------------------------------");
-            System.out.println("Only Tweets");
-            System.out.println("-------------------------------------");
-            System.out.print("Input your keyword : ");
-            search(sc.nextLine() + modifier[0]);
-            this.printResult();
-            super.continuesearch();
-        } else if (option == 2) {
-            System.out.println("-------------------------------------");
-            System.out.println("Tweets and Replies");
-            System.out.println("-------------------------------------");
-            System.out.print("Input your keyword : ");
-            search(sc.nextLine() + modifier[1]);
-            this.printResult();
-            super.continuesearch();
-        } else if (option == 3) {
-            System.out.println("-------------------------------------");
-            System.out.println("Tweets and Retweets");
-            System.out.println("-------------------------------------");
-            System.out.print("Input your keyword : ");
-            search(sc.nextLine() + modifier[2]);
-            this.printResult();
-            super.continuesearch();
-        } else {
-            System.out.println("-------------------------------------");
-            System.out.println("All Tweets,Retweets,Replies");
-            System.out.println("-------------------------------------");
-            System.out.print("Input your keyword : ");
-            search(sc.nextLine());
-            this.printResult();
-            super.continuesearch();
+        switch (option) {
+            case 1:
+                System.out.println("-------------------------------------");
+                System.out.println("Only Tweets");
+                System.out.println("-------------------------------------");
+                System.out.print("Input your keyword : ");
+                search(sc.nextLine() + modifier[0]);
+                this.printResult();
+                super.continuesearch();
+                break;
+            case 2:
+                System.out.println("-------------------------------------");
+                System.out.println("Tweets and Replies");
+                System.out.println("-------------------------------------");
+                System.out.print("Input your keyword : ");
+                search(sc.nextLine() + modifier[1]);
+                this.printResult();
+                super.continuesearch();
+                break;
+            case 3:
+                System.out.println("-------------------------------------");
+                System.out.println("Tweets and Retweets");
+                System.out.println("-------------------------------------");
+                System.out.print("Input your keyword : ");
+                search(sc.nextLine() + modifier[2]);
+                this.printResult();
+                super.continuesearch();
+                break;
+            default:
+                System.out.println("-------------------------------------");
+                System.out.println("All Tweets,Retweets,Replies");
+                System.out.println("-------------------------------------");
+                System.out.print("Input your keyword : ");
+                search(sc.nextLine());
+                this.printResult();
+                super.continuesearch();
+                break;
         }
     }
 
@@ -124,12 +137,12 @@ public class APISearch extends SearchType {
             final URLConnection conn = check.openConnection();
             conn.connect();
             conn.getInputStream().close();
-            //System.out.println("Connection Connected");
+            System.out.println("Connection : Success");
             return true;
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
-            //System.out.println("Connection Failed");
+            System.out.println("Connection : Failed");
             System.exit(-1);
             return false;
         }
@@ -149,7 +162,6 @@ public class APISearch extends SearchType {
                 System.out.println(" SecondsUntilReset: " + status.getSecondsUntilReset());
             }
         } catch (TwitterException te) {
-            te.printStackTrace();
             System.out.println("Failed to get rate limit status: " + te.getMessage());
         }
     }

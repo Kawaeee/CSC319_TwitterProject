@@ -1,6 +1,5 @@
 package twitterproject;
 
-//import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
@@ -10,15 +9,16 @@ import twitter4j.TwitterException;
 
 public class FileSearch extends SearchType {
 
-    //ArrayList<Tweet> data = new ArrayList<Tweet>();
     private String line;
-    private Scanner sc;
     private Scanner file;
     //private Date date;
     private int count;
 
     public FileSearch() throws TwitterException, IOException {
-        sc = new Scanner(System.in);
+        System.out.println("-------------------------------------");
+        System.out.println("Existing file search");
+        System.out.println("-------------------------------------");
+        System.out.print(sc.nextLine()); //clear input
         System.out.print("Input your file path : ");
         openFile(sc.nextLine());
         System.out.println("-------------------------------------");
@@ -35,7 +35,7 @@ public class FileSearch extends SearchType {
             return true;
         } catch (FileNotFoundException catcher) {
             System.out.println("Error," + filename + " not Found.");
-            //catcher.printStackTrace();
+            catcher.printStackTrace();
             System.exit(-1);
             return false;
         }
