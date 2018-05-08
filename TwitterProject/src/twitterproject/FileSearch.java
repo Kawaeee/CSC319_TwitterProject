@@ -27,15 +27,15 @@ public class FileSearch extends SearchType {
         super.continuesearch();
     }
 
-    public boolean openFile(String filename) {
+    public boolean openFile(String filename) throws TwitterException {
         System.out.println("-------------------------------------");
         try {
             file = new Scanner(new FileReader(filename));
             System.out.println("Success," + filename + " has been opened.");
             return true;
-        } catch (FileNotFoundException catcher) {
+        } catch (FileNotFoundException e) {
             System.out.println("Error," + filename + " not Found.");
-            System.exit(-1);
+            super.startsearch();
             return false;
         }
     }

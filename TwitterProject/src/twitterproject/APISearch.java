@@ -1,10 +1,10 @@
 package twitterproject;
 
-//import java.util.ArrayList;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Map;
 import twitter4j.Query;
@@ -18,35 +18,39 @@ import twitter4j.conf.ConfigurationBuilder;
 public class APISearch extends SearchType {
 
     ConfigurationBuilder obj;
-    //ArrayList<Tweet> data = new ArrayList<Tweet>();
     Query query;
     QueryResult result;
     List<Status> tweets;
     String url;
+    String keyword;
+    String filter = "";
 
     public APISearch() throws TwitterException, IOException {
-
-        this.obj = new ConfigurationBuilder();
-        this.obj.setOAuthConsumerKey("")
-                .setOAuthConsumerSecret("")
-                .setOAuthAccessToken("")
-                .setOAuthAccessTokenSecret("");
-
+        setAPIKey();
         System.out.println("-------------------------------------");
         System.out.println("API search");
         System.out.println("-------------------------------------");
         checkConnection();
         System.out.println("-------------------------------------");
-        System.out.println("Option Search");
-        System.out.println("1 for Only Tweets");
-        System.out.println("2 for Tweets and Replies");
-        System.out.println("3 for Tweets and Retweets");
-        System.out.println("Other numbers for All Tweets,Retweets,Replies");
+        System.out.println("Filter Search to seperate your results");
+        System.out.println("Choose number to exclude it");
+        System.out.println("1 for Retweet");
+        System.out.println("2 for Replies");
+        System.out.println("3 for Mentions");
+        System.out.println("Other numbers for include all of this filter");
         System.out.println("-------------------------------------");
         System.out.print("Input your option : ");
         optionSearch(sc.nextInt());
         this.printResult();
         super.continuesearch();
+    }
+
+    public void setAPIKey() {
+        this.obj = new ConfigurationBuilder();
+        this.obj.setOAuthConsumerKey("")
+                .setOAuthConsumerSecret("")
+                .setOAuthAccessToken("")
+                .setOAuthAccessTokenSecret("");
     }
 
     public void search(String keyword) throws TwitterException {
@@ -80,44 +84,81 @@ public class APISearch extends SearchType {
 
     public void optionSearch(int option) throws TwitterException, IOException {
         System.out.print(sc.nextLine()); //clear input
-        String[] modifier = new String[]{" +exclude:retweets +exclude:replies +exclude:mentions", " +exclude:retweets", " +exclude:replies"};
+        String[] modifier = new String[]{" +exclude:retweets", " +exclude:replies", " +exclude:mentions"}; //option for simple search
         switch (option) {
             case 1:
-                System.out.println("-------------------------------------");
-                System.out.println("Only Tweets");
-                System.out.println("-------------------------------------");
-                System.out.print("Input your keyword : ");
-                search(sc.nextLine() + modifier[0]);
-                this.printResult();
-                super.continuesearch();
-                break;
+                if (filter.contains(modifier[0])) {
+                    System.out.println("-------------------------------------");
+                    System.out.println("Already Exclude Retweets");
+                    System.out.println("-------------------------------------");
+                    break;
+                } else {
+                    System.out.println("-------------------------------------");
+                    System.out.println("Exclude Retweets");
+                    filter = filter.concat(modifier[0]);
+                    break;
+                }
             case 2:
-                System.out.println("-------------------------------------");
-                System.out.println("Tweets and Replies");
-                System.out.println("-------------------------------------");
-                System.out.print("Input your keyword : ");
-                search(sc.nextLine() + modifier[1]);
-                this.printResult();
-                super.continuesearch();
-                break;
+                if (filter.contains(modifier[1])) {
+                    System.out.println("-------------------------------------");
+                    System.out.println("Already Exclude Replies");
+                    System.out.println("-------------------------------------");
+                    break;
+                } else {
+                    System.out.println("-------------------------------------");
+                    System.out.println("Exclude Replies");
+                    filter = filter.concat(modifier[1]);
+                    break;
+                }
             case 3:
-                System.out.println("-------------------------------------");
-                System.out.println("Tweets and Retweets");
-                System.out.println("-------------------------------------");
-                System.out.print("Input your keyword : ");
-                search(sc.nextLine() + modifier[2]);
-                this.printResult();
-                super.continuesearch();
-                break;
+                if (filter.contains(modifier[2])) {
+                    System.out.println("-------------------------------------");
+                    System.out.println("Already Exclude Mentions");
+                    System.out.println("-------------------------------------");
+                } else {
+                    System.out.println("-------------------------------------");
+                    System.out.println("Exclude Mentions");
+                    filter = filter.concat(modifier[2]);
+                    break;
+                }
             default:
                 System.out.println("-------------------------------------");
-                System.out.println("All Tweets,Retweets,Replies");
-                System.out.println("-------------------------------------");
+                System.out.println("Non Exclude");
                 System.out.print("Input your keyword : ");
                 search(sc.nextLine());
                 this.printResult();
                 super.continuesearch();
                 break;
+        }
+
+        System.out.println("-------------------------------------");
+        System.out.println("Continue Filtering? Y/N");
+        System.out.println("-------------------------------------");
+        System.out.print("Input : ");
+        checker = sc.next().toUpperCase();
+        if (checker.equalsIgnoreCase("Y")) {
+            System.out.println("-------------------------------------");
+            System.out.println("Filter Search to seperate your results");
+            System.out.println("Choose number to exclude it");
+            System.out.println("1 for Retweet");
+            System.out.println("2 for Replies");
+            System.out.println("3 for Mentions");
+            System.out.println("Other numbers for include all of this filter");
+            System.out.println("-------------------------------------");
+            System.out.print("Input your option : ");
+            optionSearch(sc.nextInt());
+        } else if (checker.equalsIgnoreCase("N")) {
+            System.out.println(sc.nextLine()); //clear input
+            System.out.print("Input your keyword : ");
+            search(sc.nextLine().concat(filter));
+            this.printResult();
+            super.continuesearch();
+        } else {
+            System.out.println(sc.nextLine()); // clear input
+            System.out.print("Input your keyword : ");
+            search(sc.nextLine().concat(filter));
+            this.printResult();
+            super.continuesearch();
         }
     }
 
