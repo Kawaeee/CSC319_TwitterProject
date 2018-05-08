@@ -80,7 +80,7 @@ public class APISearch extends SearchType {
 
     public void optionSearch(int option) throws TwitterException, IOException {
         System.out.print(sc.nextLine()); //clear input
-        String[] modifier = new String[]{" +exclude:retweets +exclude:replies", " +exclude:retweets", " +exclude:replies"};
+        String[] modifier = new String[]{" +exclude:retweets +exclude:replies +exclude:mentions", " +exclude:retweets", " +exclude:replies"};
         switch (option) {
             case 1:
                 System.out.println("-------------------------------------");
