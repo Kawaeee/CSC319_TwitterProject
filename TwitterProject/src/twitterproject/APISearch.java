@@ -4,9 +4,10 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.InputMismatchException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import twitter4j.Paging;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.RateLimitStatus;
@@ -31,18 +32,7 @@ public class APISearch extends SearchType {
         System.out.println("API search");
         System.out.println("-------------------------------------");
         checkConnection();
-        System.out.println("-------------------------------------");
-        System.out.println("Filter Search to seperate your results");
-        System.out.println("Choose number to exclude it");
-        System.out.println("1 for Retweet");
-        System.out.println("2 for Replies");
-        System.out.println("3 for Mentions");
-        System.out.println("Other numbers for include all of this filter");
-        System.out.println("-------------------------------------");
-        System.out.print("Input your option : ");
-        optionSearch(sc.nextInt());
-        this.printResult();
-        super.continuesearch();
+        setSearch();
     }
 
     public void setAPIKey() {
@@ -51,6 +41,62 @@ public class APISearch extends SearchType {
                 .setOAuthConsumerSecret("")
                 .setOAuthAccessToken("")
                 .setOAuthAccessTokenSecret("");
+        //.setTweetModeExtended(true);
+    }
+
+    public void setSearch() throws TwitterException, IOException {
+        System.out.println("-------------------------------------");
+        System.out.println("API Search type");
+        System.out.println("-------------------------------------");
+        System.out.println("Choose 1 for Normal API search with simple filter");
+        System.out.println("Choose 2 for Latest 100 tweets search");
+        System.out.println("Choose 3 for User search");
+        System.out.println("-------------------------------------");
+        System.out.print("Choose one : ");
+        int type = sc.nextInt();
+        switch (type) {
+            case 1:
+                System.out.println("-------------------------------------");
+                System.out.println("Normal API search with simple filter");
+                System.out.println("-------------------------------------");
+                System.out.println("Filter Search to seperate your results");
+                System.out.println("Choose number to exclude it");
+                System.out.println("1 for Retweet");
+                System.out.println("2 for Replies");
+                System.out.println("3 for Mentions");
+                System.out.println("Other numbers for include all of this filter");
+                System.out.println("-------------------------------------");
+                System.out.print("Input your option : ");
+                optionSearch(sc.nextInt());
+                this.printResult();
+                super.continuesearch();
+                break;
+            case 2:
+                System.out.println(sc.nextLine()); // clear input
+                System.out.println("-------------------------------------");
+                System.out.println("Latest 100 tweets search");
+                System.out.println("-------------------------------------");
+                System.out.print("Input your keyword : ");
+                getLatestTweet(sc.nextLine());
+                this.printResult();
+                super.continuesearch();
+                break;
+            case 3:
+                System.out.println(sc.nextLine());
+                System.out.println("-------------------------------------");
+                System.out.println("User search");
+                System.out.println("-------------------------------------");
+                System.out.print("Input your keyword : ");
+                userSearch(sc.nextLine());
+                this.printResult();
+                super.continuesearch();
+                break;
+            default:
+                System.out.println("-------------------------------------");
+                System.out.println("Mismatch Input , Try again.");
+                super.startsearch();
+                break;
+        }
     }
 
     public void search(String keyword) throws TwitterException {
@@ -124,6 +170,7 @@ public class APISearch extends SearchType {
             default:
                 System.out.println("-------------------------------------");
                 System.out.println("Non Exclude");
+                System.out.println("-------------------------------------");
                 System.out.print("Input your keyword : ");
                 search(sc.nextLine());
                 this.printResult();
@@ -179,6 +226,53 @@ public class APISearch extends SearchType {
         System.out.println("From these accounts : ");
         System.out.println("Mentioning these accounts: : ");
         System.out.println("-------------------------------------");
+    }
+
+    public void getLatestTweet(String keyword) throws TwitterException {
+        TwitterFactory tf = new TwitterFactory(obj.build());
+        twitter4j.Twitter twitter = tf.getInstance();
+        query = new Query(keyword);
+        query.setCount(100);
+        word = keyword;
+        result = twitter.search(query);
+        tweets = result.getTweets();
+
+        for (Status tweet : tweets) {
+            url = "https://twitter.com/" + tweet.getUser().getScreenName() + "/status/" + tweet.getId();
+            data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText(), url));
+        }
+    }
+
+    public void userSearch(String keyword) {
+        TwitterFactory tf = new TwitterFactory(obj.build());
+        twitter4j.Twitter twitter = tf.getInstance();
+        int pageno = 1;
+        String user = keyword;
+        word = keyword;
+        List statuses = new ArrayList();
+        while (true) {
+            try {
+                int size = statuses.size();
+                Paging page = new Paging(pageno++, 100);
+                statuses.addAll(twitter.getUserTimeline(user, page));
+                //System.out.println("Gathered " + twitter.getUserTimeline(keyword, page).size() + " tweets");
+                for (Status tweet : twitter.getUserTimeline(user, page)) {
+                    url = "https://twitter.com/" + tweet.getUser().getScreenName() + "/status/" + tweet.getId();
+                    //System.out.println("[" + (pageno++) + ".] " + "Status id : " + tweet.getId());
+                    //System.out.println("id user : " + tweet.getUser().getId());
+                    //System.out.println("Length status :  " + tweet.getText().length());
+                    //System.out.println("@" + tweet.getUser().getScreenName() + " . " + tweet.getCreatedAt() + " : " + tweet.getUser().getName() + "--------" + tweet.getText());
+                    //System.out.println("url :" + tweet.getUser().getURL());
+                    //System.out.println("Lang :" + tweet.getLang());
+                    data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText(), url));
+                }
+                if (statuses.size() == size) {
+                    break;
+                }
+            } catch (TwitterException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
