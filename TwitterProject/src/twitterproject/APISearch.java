@@ -25,6 +25,7 @@ public class APISearch extends SearchType {
     private String url;
     private String filter = "";
     private String checker;
+    String[] modifier = new String[]{" +exclude:retweets", " +exclude:replies", " +exclude:mentions", " +exclude:hashtags"}; //option for simple search
 
     public APISearch() throws TwitterException, IOException {
         setAPIKey();
@@ -44,6 +45,7 @@ public class APISearch extends SearchType {
                 .setOAuthConsumerSecret("")
                 .setOAuthAccessToken("")
                 .setOAuthAccessTokenSecret("");
+
         //.setTweetModeExtended(true);
     }
 
@@ -134,7 +136,7 @@ public class APISearch extends SearchType {
 
     public void optionSearch(int option) throws TwitterException, IOException {
         System.out.print(SC.nextLine()); //clear input
-        String[] modifier = new String[]{" +exclude:retweets", " +exclude:replies", " +exclude:mentions", " +exclude:hashtags"}; //option for simple search
+
         switch (option) {
             case 1:
                 if (filter.contains(modifier[0])) {

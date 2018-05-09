@@ -29,15 +29,13 @@ public class TwitterGUI extends javax.swing.JFrame {
 
         BG = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         fromFile = new javax.swing.JButton();
         fromAPI = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel2.setText("TWITTER SEARCHER");
-
-        jLabel1.setText("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
         fromFile.setText("Search from File");
         fromFile.addActionListener(new java.awt.event.ActionListener() {
@@ -58,63 +56,59 @@ public class TwitterGUI extends javax.swing.JFrame {
         BGLayout.setHorizontalGroup(
             BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BGLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(fromFile, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(fromAPI, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BGLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(326, 326, 326))
-            .addGroup(BGLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(BGLayout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(fromFile)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(fromAPI)
                 .addGap(163, 163, 163))
         );
         BGLayout.setVerticalGroup(
             BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BGLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(81, 81, 81)
+                .addContainerGap(56, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fromFile)
-                    .addComponent(fromAPI))
-                .addContainerGap(143, Short.MAX_VALUE))
+                    .addComponent(fromFile, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fromAPI, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(75, 75, 75))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 247, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 118, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fromFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromFileActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-        TwitterGUI01 twitterfile = new TwitterGUI01();
-        twitterfile.setVisible(true);
-    }//GEN-LAST:event_fromFileActionPerformed
-
     private void fromAPIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromAPIActionPerformed
         // TODO add your handling code here:
-        setVisible(false);
+        this.hide();
         TwitterGUI02 twitterapi = new TwitterGUI02();
         twitterapi.setVisible(true);
     }//GEN-LAST:event_fromAPIActionPerformed
+
+    private void fromFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromFileActionPerformed
+        // TODO add your handling code here:
+        this.hide();
+        TwitterGUI01 twitterfile = new TwitterGUI01();
+        twitterfile.setVisible(true);
+    }//GEN-LAST:event_fromFileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,7 +149,6 @@ public class TwitterGUI extends javax.swing.JFrame {
     private javax.swing.JPanel BG;
     private javax.swing.JButton fromAPI;
     private javax.swing.JButton fromFile;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
