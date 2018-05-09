@@ -28,11 +28,14 @@ public class APISearch extends SearchType {
 
     public APISearch() throws TwitterException, IOException {
         setAPIKey();
-        System.out.println("-------------------------------------");
-        System.out.println("API search");
-        System.out.println("-------------------------------------");
-        checkConnection();
-        setSearch();
+        //This part for Text-based user interface
+        /*
+        ///System.out.println("-------------------------------------");
+        /// System.out.println("API search");
+        /// System.out.println("-------------------------------------");
+        /// checkConnection();
+        /// setSearch();
+         */
     }
 
     public void setAPIKey() {
