@@ -70,7 +70,7 @@ public class TwitterGUI extends javax.swing.JFrame {
                 .addComponent(fromFile)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(fromAPI)
-                .addGap(153, 153, 153))
+                .addGap(163, 163, 163))
         );
         BGLayout.setVerticalGroup(
             BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,7 +83,7 @@ public class TwitterGUI extends javax.swing.JFrame {
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fromFile)
                     .addComponent(fromAPI))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -95,8 +95,8 @@ public class TwitterGUI extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(BG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(2, 2, 2))
+                .addComponent(BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -104,12 +104,14 @@ public class TwitterGUI extends javax.swing.JFrame {
 
     private void fromFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromFileActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
         TwitterGUI01 twitterfile = new TwitterGUI01();
         twitterfile.setVisible(true);
     }//GEN-LAST:event_fromFileActionPerformed
 
     private void fromAPIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromAPIActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
         TwitterGUI02 twitterapi = new TwitterGUI02();
         twitterapi.setVisible(true);
     }//GEN-LAST:event_fromAPIActionPerformed
