@@ -1,20 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package twitterproject;
 
-/**
- *
- * @author Prptri
- */
-public class TwitterGUI02 extends javax.swing.JFrame {
+public class TwitterAPI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TwitterGUI02
-     */
-    public TwitterGUI02() {
+    public TwitterAPI() {
         initComponents();
     }
 
@@ -134,29 +122,29 @@ public class TwitterGUI02 extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.hide();
-        TwitterGUI newpageTwitterGUI = new TwitterGUI();
-        newpageTwitterGUI.setVisible(true);
+        TwitterGUI mainGUI = new TwitterGUI();
+        mainGUI.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         this.hide();
-        TwitterUserSearch twitterusersearchpage = new TwitterUserSearch();
-        twitterusersearchpage.setVisible(true);
+        TwitterUserSearch usersearch = new TwitterUserSearch();
+        usersearch.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.hide();
-        TwitterLastest twitterlastest100 = new TwitterLastest();
-        twitterlastest100.setVisible(true);
+        TwitterLastest lastest100 = new TwitterLastest();
+        lastest100.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.hide();
-        TwitterFilter twitterfilterpage = new TwitterFilter();
-        twitterfilterpage.setVisible(true);
+        TwitterFilter filtertest = new TwitterFilter();
+        filtertest.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -176,20 +164,23 @@ public class TwitterGUI02 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TwitterGUI02.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TwitterAPI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TwitterGUI02.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TwitterAPI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TwitterGUI02.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TwitterAPI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TwitterGUI02.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TwitterAPI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TwitterGUI02().setVisible(true);
+                new TwitterAPI().setVisible(true);
             }
         });
     }

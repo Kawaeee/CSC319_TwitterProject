@@ -1,19 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package twitterproject;
 
-/**
- *
- * @author Prptri
- */
 public class TwitterGUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TwitterGUI
-     */
     public TwitterGUI() {
         initComponents();
     }
@@ -99,14 +87,14 @@ public class TwitterGUI extends javax.swing.JFrame {
     private void fromAPIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromAPIActionPerformed
         // TODO add your handling code here:
         this.hide();
-        TwitterGUI02 twitterapi = new TwitterGUI02();
+        TwitterAPI twitterapi = new TwitterAPI();
         twitterapi.setVisible(true);
     }//GEN-LAST:event_fromAPIActionPerformed
 
     private void fromFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromFileActionPerformed
         // TODO add your handling code here:
         this.hide();
-        TwitterGUI01 twitterfile = new TwitterGUI01();
+        TwitterFile twitterfile = new TwitterFile();
         twitterfile.setVisible(true);
     }//GEN-LAST:event_fromFileActionPerformed
 

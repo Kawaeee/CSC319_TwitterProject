@@ -7,7 +7,6 @@ public class TwitterFilter extends javax.swing.JFrame {
 
     public TwitterFilter() {
         initComponents();
-
     }
 
     /**
@@ -151,19 +150,18 @@ public class TwitterFilter extends javax.swing.JFrame {
         } else {
             filter = filter.replace(modifier[0], "");
         }
-        //jTextField1.setText(filter);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.hide();
-        TwitterFilterResult newtwitterfilterresultpage = new TwitterFilterResult(filter);
-        newtwitterfilterresultpage.setVisible(true);
+        TwitterFilterResult filterResult = new TwitterFilterResult(filter);
+        filterResult.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         this.hide();
-        TwitterGUI02 twittergui02page = new TwitterGUI02();
-        twittergui02page.setVisible(true);
+        TwitterAPI apisearch = new TwitterAPI();
+        apisearch.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
@@ -172,7 +170,6 @@ public class TwitterFilter extends javax.swing.JFrame {
         } else {
             filter = filter.replace(modifier[1], "");
         }
-        // jTextField1.setText(filter);
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
@@ -181,7 +178,6 @@ public class TwitterFilter extends javax.swing.JFrame {
         } else {
             filter = filter.replace(modifier[2], "");
         }
-        //jTextField1.setText(filter);
     }//GEN-LAST:event_jToggleButton3ActionPerformed
 
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
@@ -190,7 +186,6 @@ public class TwitterFilter extends javax.swing.JFrame {
         } else {
             filter = filter.replace(modifier[3], "");
         }
-        // jTextField1.setText(filter);
     }//GEN-LAST:event_jToggleButton4ActionPerformed
 
     /**

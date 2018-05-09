@@ -31,11 +31,11 @@ public class APISearch extends SearchType {
         setAPIKey();
         //This part for Text-based user interface
         /*
-        ///System.out.println("-------------------------------------");
-        /// System.out.println("API search");
-        /// System.out.println("-------------------------------------");
-        /// checkConnection();
-        /// setSearch();
+        System.out.println("-------------------------------------");
+        System.out.println("API search");
+        System.out.println("-------------------------------------");
+        checkConnection();
+        setSearch();
          */
     }
 
@@ -45,7 +45,6 @@ public class APISearch extends SearchType {
                 .setOAuthConsumerSecret("")
                 .setOAuthAccessToken("")
                 .setOAuthAccessTokenSecret("");
-
         //.setTweetModeExtended(true);
     }
 
@@ -200,7 +199,7 @@ public class APISearch extends SearchType {
         System.out.println("Continue Filtering? Y/N");
         System.out.println("-------------------------------------");
         System.out.print("Input : ");
-        checker = SC.next().toUpperCase();
+        checker = SC.next();
         if (checker.equalsIgnoreCase("Y")) {
             System.out.println("-------------------------------------");
             System.out.println("Filter Search to seperate your results");
@@ -212,12 +211,6 @@ public class APISearch extends SearchType {
             System.out.println("-------------------------------------");
             System.out.print("Input your option : ");
             optionSearch(SC.nextInt());
-        } else if (checker.equalsIgnoreCase("N")) {
-            System.out.println(SC.nextLine()); //clear input
-            System.out.print("Input your keyword : ");
-            search(SC.nextLine().concat(filter));
-            this.printResult();
-            super.continuesearch();
         } else {
             System.out.println(SC.nextLine()); // clear input
             System.out.print("Input your keyword : ");
@@ -273,15 +266,8 @@ public class APISearch extends SearchType {
                 int size = statuses.size();
                 Paging page = new Paging(pageno++, 100);
                 statuses.addAll(twitter.getUserTimeline(user, page));
-                //System.out.println("Gathered " + twitter.getUserTimeline(keyword, page).size() + " tweets");
                 for (Status tweet : twitter.getUserTimeline(user, page)) {
                     url = "https://twitter.com/" + tweet.getUser().getScreenName() + "/status/" + tweet.getId();
-                    //System.out.println("[" + (pageno++) + ".] " + "Status id : " + tweet.getId());
-                    //System.out.println("id user : " + tweet.getUser().getId());
-                    //System.out.println("Length status :  " + tweet.getText().length());
-                    //System.out.println("@" + tweet.getUser().getScreenName() + " . " + tweet.getCreatedAt() + " : " + tweet.getUser().getName() + "--------" + tweet.getText());
-                    //System.out.println("url :" + tweet.getUser().getURL());
-                    //System.out.println("Lang :" + tweet.getLang());
                     data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText(), url));
                 }
                 if (statuses.size() == size) {

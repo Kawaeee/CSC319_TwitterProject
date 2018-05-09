@@ -14,7 +14,7 @@ public class SearchType {
     private String checker;
 
     public SearchType() throws TwitterException, IOException {
-        // add something eiei
+        // add something eiei eieiei
     }
 
     public void setSearchType(int type) throws TwitterException {
@@ -70,17 +70,11 @@ public class SearchType {
         System.out.println("Continue Searching? Y/N");
         System.out.println("-------------------------------------");
         System.out.print("Input : ");
-        checker = SC.next().toUpperCase();
+        checker = SC.next();
         if (checker.equalsIgnoreCase("Y")) {
             startsearch();
-        } else if (checker.equalsIgnoreCase("N")) {
-            System.out.println("-------------------------------------");
-            System.out.println("Thank for using Twitter Search");
-            System.out.println("-------------------------------------");
-            System.exit(-1);
         } else {
             System.out.println("-------------------------------------");
-            System.out.println("----------Invalid Input!-------------");
             System.out.println("Thank for using Twitter Search");
             System.out.println("-------------------------------------");
             System.exit(-1);

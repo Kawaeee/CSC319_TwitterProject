@@ -42,7 +42,7 @@ public class FileSearch extends SearchType {
 
     public void search(String keyword) {
         while (file.hasNext()) {
-            line = file.nextLine().toLowerCase();
+            line = file.nextLine();
             if (line.contains(keyword)) {
                 //data.add(new Tweet("username", date, "text", "url"));
                 System.out.println(line);
