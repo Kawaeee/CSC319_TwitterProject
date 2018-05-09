@@ -8,14 +8,10 @@ import twitter4j.TwitterException;
 
 public class SearchType {
 
-    public static Scanner sc = new Scanner(System.in);
+    final public static Scanner SC = new Scanner(System.in);
     public ArrayList<Tweet> data = new ArrayList<>();
     public String word;
-    String filename;
-    String checker;
-    FileSearch x;
-    APISearch y;
-    int type;
+    private String checker;
 
     public SearchType() throws TwitterException, IOException {
         // add something eiei
@@ -25,10 +21,10 @@ public class SearchType {
         try {
             switch (type) {
                 case 1:
-                    x = new FileSearch();
+                    FileSearch x = new FileSearch();
                     break;
                 case 2:
-                    y = new APISearch();
+                    APISearch y = new APISearch();
                     break;
                 case 3:
                     System.out.println("-------------------------------------");
@@ -58,12 +54,12 @@ public class SearchType {
         System.out.println("-------------------------------------");
         System.out.print("Choose one : ");
         try {
-            type = sc.nextInt();
+            int type = SC.nextInt();
             setSearchType(type);
         } catch (InputMismatchException e) {
             System.out.println("Mismatch Input , Try again.");
             System.out.println("-------------------------------------");
-            System.out.print("Invalid Input : " + sc.nextLine()); //clear input from nextInt();
+            System.out.print("Invalid Input : " + SC.nextLine()); //clear input from nextInt();
             System.out.println();
             startsearch();
         }
@@ -74,7 +70,7 @@ public class SearchType {
         System.out.println("Continue Searching? Y/N");
         System.out.println("-------------------------------------");
         System.out.print("Input : ");
-        checker = sc.next().toUpperCase();
+        checker = SC.next().toUpperCase();
         if (checker.equalsIgnoreCase("Y")) {
             startsearch();
         } else if (checker.equalsIgnoreCase("N")) {

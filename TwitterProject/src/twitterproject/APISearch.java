@@ -18,13 +18,13 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class APISearch extends SearchType {
 
-    ConfigurationBuilder obj;
-    Query query;
-    QueryResult result;
-    List<Status> tweets;
-    String url;
-    String keyword;
-    String filter = "";
+    private ConfigurationBuilder obj;
+    private Query query;
+    private QueryResult result;
+    private List<Status> tweets;
+    private String url;
+    private String filter = "";
+    private String checker;
 
     public APISearch() throws TwitterException, IOException {
         setAPIKey();
@@ -53,7 +53,7 @@ public class APISearch extends SearchType {
         System.out.println("Choose 3 for User search");
         System.out.println("-------------------------------------");
         System.out.print("Choose one : ");
-        int type = sc.nextInt();
+        int type = SC.nextInt();
         switch (type) {
             case 1:
                 System.out.println("-------------------------------------");
@@ -64,30 +64,31 @@ public class APISearch extends SearchType {
                 System.out.println("1 for Retweet");
                 System.out.println("2 for Replies");
                 System.out.println("3 for Mentions");
+                System.out.println("4 for Hashtags");
                 System.out.println("Other numbers for include all of this filter");
                 System.out.println("-------------------------------------");
                 System.out.print("Input your option : ");
-                optionSearch(sc.nextInt());
+                optionSearch(SC.nextInt());
                 this.printResult();
                 super.continuesearch();
                 break;
             case 2:
-                System.out.println(sc.nextLine()); // clear input
+                System.out.println(SC.nextLine()); // clear input
                 System.out.println("-------------------------------------");
                 System.out.println("Latest 100 tweets search");
                 System.out.println("-------------------------------------");
                 System.out.print("Input your keyword : ");
-                getLatestTweet(sc.nextLine());
+                getLatestTweet(SC.nextLine());
                 this.printResult();
                 super.continuesearch();
                 break;
             case 3:
-                System.out.println(sc.nextLine());
+                System.out.println(SC.nextLine());
                 System.out.println("-------------------------------------");
                 System.out.println("User search");
                 System.out.println("-------------------------------------");
                 System.out.print("Input your keyword : ");
-                userSearch(sc.nextLine());
+                userSearch(SC.nextLine());
                 this.printResult();
                 super.continuesearch();
                 break;
@@ -129,8 +130,8 @@ public class APISearch extends SearchType {
     }
 
     public void optionSearch(int option) throws TwitterException, IOException {
-        System.out.print(sc.nextLine()); //clear input
-        String[] modifier = new String[]{" +exclude:retweets", " +exclude:replies", " +exclude:mentions"}; //option for simple search
+        System.out.print(SC.nextLine()); //clear input
+        String[] modifier = new String[]{" +exclude:retweets", " +exclude:replies", " +exclude:mentions", " +exclude:hashtags"}; //option for simple search
         switch (option) {
             case 1:
                 if (filter.contains(modifier[0])) {
@@ -167,12 +168,24 @@ public class APISearch extends SearchType {
                     filter = filter.concat(modifier[2]);
                     break;
                 }
+            case 4:
+                if (filter.contains(modifier[3])) {
+                    System.out.println("-------------------------------------");
+                    System.out.println("Already Exclude Hashtags");
+                    System.out.println("-------------------------------------");
+                } else {
+                    System.out.println("-------------------------------------");
+                    System.out.println("Exclude Hashtags");
+                    filter = filter.concat(modifier[3]);
+                    break;
+                }
+
             default:
                 System.out.println("-------------------------------------");
                 System.out.println("Non Exclude");
                 System.out.println("-------------------------------------");
                 System.out.print("Input your keyword : ");
-                search(sc.nextLine());
+                search(SC.nextLine());
                 this.printResult();
                 super.continuesearch();
                 break;
@@ -182,7 +195,7 @@ public class APISearch extends SearchType {
         System.out.println("Continue Filtering? Y/N");
         System.out.println("-------------------------------------");
         System.out.print("Input : ");
-        checker = sc.next().toUpperCase();
+        checker = SC.next().toUpperCase();
         if (checker.equalsIgnoreCase("Y")) {
             System.out.println("-------------------------------------");
             System.out.println("Filter Search to seperate your results");
@@ -193,17 +206,17 @@ public class APISearch extends SearchType {
             System.out.println("Other numbers for include all of this filter");
             System.out.println("-------------------------------------");
             System.out.print("Input your option : ");
-            optionSearch(sc.nextInt());
+            optionSearch(SC.nextInt());
         } else if (checker.equalsIgnoreCase("N")) {
-            System.out.println(sc.nextLine()); //clear input
+            System.out.println(SC.nextLine()); //clear input
             System.out.print("Input your keyword : ");
-            search(sc.nextLine().concat(filter));
+            search(SC.nextLine().concat(filter));
             this.printResult();
             super.continuesearch();
         } else {
-            System.out.println(sc.nextLine()); // clear input
+            System.out.println(SC.nextLine()); // clear input
             System.out.print("Input your keyword : ");
-            search(sc.nextLine().concat(filter));
+            search(SC.nextLine().concat(filter));
             this.printResult();
             super.continuesearch();
         }

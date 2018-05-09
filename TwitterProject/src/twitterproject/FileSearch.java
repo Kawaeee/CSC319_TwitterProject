@@ -18,12 +18,12 @@ public class FileSearch extends SearchType {
         System.out.println("-------------------------------------");
         System.out.println("Existing file search");
         System.out.println("-------------------------------------");
-        System.out.print(sc.nextLine()); //clear input
+        System.out.print(SC.nextLine()); //clear input
         System.out.print("Input your file path : ");
-        openFile(sc.nextLine());
+        openFile(SC.nextLine());
         System.out.println("-------------------------------------");
         System.out.print("Input your keyword : ");
-        search(sc.nextLine());
+        search(SC.nextLine());
         super.continuesearch();
     }
 
