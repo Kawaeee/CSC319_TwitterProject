@@ -7,6 +7,7 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import twitter4j.Paging;
 import twitter4j.Query;
 import twitter4j.QueryResult;
@@ -45,10 +46,11 @@ public class APISearch extends SearchType {
                 .setOAuthConsumerSecret("")
                 .setOAuthAccessToken("")
                 .setOAuthAccessTokenSecret("");
+
         //.setTweetModeExtended(true);
     }
 
-    public void setSearch() throws TwitterException, IOException {
+    public void setSearch() throws TwitterException, IOException, InvalidFormatException {
         System.out.println("-------------------------------------");
         System.out.println("API Search type");
         System.out.println("-------------------------------------");
@@ -122,7 +124,7 @@ public class APISearch extends SearchType {
         } while ((query = result.nextQuery()) != null);
     }
 
-    public void optionSearch(int option) throws TwitterException, IOException {
+    public void optionSearch(int option) throws TwitterException, IOException, InvalidFormatException {
         System.out.print(SC.nextLine()); //clear input
 
         switch (option) {

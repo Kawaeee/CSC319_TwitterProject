@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import twitter4j.TwitterException;
 
 public class SearchType {
@@ -17,7 +18,7 @@ public class SearchType {
         // add something eiei eieiei
     }
 
-    public void setSearchType(int type) throws TwitterException {
+    public void setSearchType(int type) throws TwitterException, InvalidFormatException {
         try {
             switch (type) {
                 case 1:
@@ -44,7 +45,7 @@ public class SearchType {
         }
     }
 
-    public void startsearch() throws TwitterException {
+    public void startsearch() throws TwitterException, InvalidFormatException {
         data = new ArrayList<>(); //clear output
         System.out.println("-------------------------------------");
         System.out.println("Twitter Search");
@@ -65,7 +66,7 @@ public class SearchType {
         }
     }
 
-    public void continuesearch() throws TwitterException, IOException {
+    public void continuesearch() throws TwitterException, IOException, InvalidFormatException {
         System.out.println("-------------------------------------");
         System.out.println("Continue Searching? Y/N");
         System.out.println("-------------------------------------");

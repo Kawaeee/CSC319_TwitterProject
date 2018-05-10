@@ -1,20 +1,26 @@
 package twitterproject;
 
 import java.util.Scanner;
-import java.io.FileReader;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import twitter4j.TwitterException;
+//import java.io.FileReader;
 //import java.util.Date;
+import org.apache.poi.ss.usermodel.*;
+import java.io.File;
+import java.io.IOException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 public class FileSearch extends SearchType {
 
     private String line;
-    private Scanner file;
+    //private Scanner file;
     //private Date date;
     private int count;
+    Workbook file;
+    Sheet sheet;
+    DataFormatter dataFormatter = new DataFormatter();
 
-    public FileSearch() throws TwitterException, IOException {
+    public FileSearch() throws TwitterException, IOException, InvalidFormatException {
         System.out.println("-------------------------------------");
         System.out.println("Existing file search");
         System.out.println("-------------------------------------");
@@ -27,30 +33,32 @@ public class FileSearch extends SearchType {
         super.continuesearch();
     }
 
-    public boolean openFile(String filename) throws TwitterException {
-        System.out.println("-------------------------------------");
+    public boolean openFile(String filepath) throws TwitterException, IOException, InvalidFormatException {
         try {
-            file = new Scanner(new FileReader(filename));
-            System.out.println("Success," + filename + " has been opened.");
+            System.out.println("-------------------------------------");
+            file = WorkbookFactory.create(new File(filepath));
+            System.out.println("Sheet has " + file.getNumberOfSheets() + " Sheets : ");
+            System.out.println("Success," + filepath + " has been opened.");
             return true;
-        } catch (FileNotFoundException e) {
-            System.out.println("Error," + filename + " not Found.");
+        } catch (FileNotFoundException x) {
+            System.out.println("Error," + filepath + " not Found.");
             super.startsearch();
             return false;
         }
+
     }
 
     public void search(String keyword) {
-        while (file.hasNext()) {
-            line = file.nextLine();
-            if (line.contains(keyword)) {
-                //data.add(new Tweet("username", date, "text", "url"));
-                System.out.println(line);
-                count++;
+        sheet = file.getSheetAt(0);
+        System.out.println("\n\nIterating over Rows and Columns using for-each loop\n");
+        for (Row row : sheet) {
+            for (Cell cell : row) {
+                String cellValue = dataFormatter.formatCellValue(cell);
+                System.out.print(cellValue + "\t");
             }
+            System.out.println();
         }
-        //System.out.println("Total tweets about " + keyword + " is " + data.size());
-        System.out.println("Total tweets about " + keyword + " is " + count);
+
     }
 
     @Override
