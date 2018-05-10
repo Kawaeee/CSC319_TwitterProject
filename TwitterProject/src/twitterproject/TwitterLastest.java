@@ -40,6 +40,8 @@ public class TwitterLastest extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        BG2.setBackground(new java.awt.Color(192, 222, 237));
+
         jLabel7.setText("Latest 100 Tweets");
 
         jLabel8.setText("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -66,6 +68,7 @@ public class TwitterLastest extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setBackground(new java.awt.Color(0, 172, 237));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -117,15 +120,14 @@ public class TwitterLastest extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, BG2Layout.createSequentialGroup()
-                        .addGroup(BG2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BG2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jButton4))
-                            .addGroup(BG2Layout.createSequentialGroup()
-                                .addGap(421, 421, 421)
-                                .addComponent(jLabel7)))
+                        .addContainerGap()
+                        .addComponent(jButton4)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BG2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(339, 339, 339))
         );
         BG2Layout.setVerticalGroup(
             BG2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
