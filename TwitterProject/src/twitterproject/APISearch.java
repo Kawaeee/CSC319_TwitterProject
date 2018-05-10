@@ -110,19 +110,7 @@ public class APISearch extends SearchType {
         query = new Query(keyword);
         query.setCount(100);
         word = keyword;
-        result = twitter.search(query);
-        tweets = result.getTweets();
-
-        for (Status tweet : tweets) {
-            url = "https://twitter.com/" + tweet.getUser().getScreenName() + "/status/" + tweet.getId();
-            data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText(), url));
-        }
-
-        while (result.hasNext()) {
-            if (result.hasNext() == false) {
-                break;
-            }
-            query = result.nextQuery();
+        do {
             result = twitter.search(query);
             tweets = result.getTweets();
 
@@ -130,7 +118,8 @@ public class APISearch extends SearchType {
                 url = "https://twitter.com/" + tweet.getUser().getScreenName() + "/status/" + tweet.getId();
                 data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText(), url));
             }
-        }
+
+        } while ((query = result.nextQuery()) != null);
     }
 
     public void optionSearch(int option) throws TwitterException, IOException {
