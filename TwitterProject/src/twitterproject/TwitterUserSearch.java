@@ -39,6 +39,8 @@ public class TwitterUserSearch extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        BG.setBackground(new java.awt.Color(192, 222, 237));
+
         jLabel2.setText("User Search");
 
         jLabel1.setText("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");

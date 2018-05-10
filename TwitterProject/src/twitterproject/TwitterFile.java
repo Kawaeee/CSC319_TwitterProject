@@ -27,6 +27,8 @@ public class TwitterFile extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
+        BG.setBackground(new java.awt.Color(192, 222, 237));
+
         jLabel2.setText("TWITTER SEARCHER");
 
         jLabel1.setText("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
