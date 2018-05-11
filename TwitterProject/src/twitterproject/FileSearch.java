@@ -1,14 +1,17 @@
 package twitterproject;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 import java.io.FileNotFoundException;
 import twitter4j.TwitterException;
 //import java.io.FileReader;
 //import java.util.Date;
-import org.apache.poi.ss.usermodel.*;
 import java.io.File;
 import java.io.IOException;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
 
 public class FileSearch extends SearchType {
 
@@ -16,11 +19,9 @@ public class FileSearch extends SearchType {
     //private Scanner file;
     //private Date date;
     private int count;
-    Workbook file;
-    Sheet sheet;
-    DataFormatter dataFormatter = new DataFormatter();
 
-    public FileSearch() throws TwitterException, IOException, InvalidFormatException {
+
+    public FileSearch() throws TwitterException, IOException{
         System.out.println("-------------------------------------");
         System.out.println("Existing file search");
         System.out.println("-------------------------------------");
@@ -33,31 +34,15 @@ public class FileSearch extends SearchType {
         super.continuesearch();
     }
 
-    public boolean openFile(String filepath) throws TwitterException, IOException, InvalidFormatException {
-        try {
-            System.out.println("-------------------------------------");
-            file = WorkbookFactory.create(new File(filepath));
-            System.out.println("Sheet has " + file.getNumberOfSheets() + " Sheets : ");
-            System.out.println("Success," + filepath + " has been opened.");
-            return true;
-        } catch (FileNotFoundException x) {
-            System.out.println("Error," + filepath + " not Found.");
-            super.startsearch();
-            return false;
-        }
+    public boolean openFile(String filepath) throws TwitterException, IOException{
+        Reader reader = Files.newBufferedReader(Paths.get(filepath));
+        CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);
+        return false;
 
     }
 
     public void search(String keyword) {
-        sheet = file.getSheetAt(0);
-        System.out.println("\n\nIterating over Rows and Columns using for-each loop\n");
-        for (Row row : sheet) {
-            for (Cell cell : row) {
-                String cellValue = dataFormatter.formatCellValue(cell);
-                System.out.print(cellValue + "\t");
-            }
-            System.out.println();
-        }
+        
 
     }
 
