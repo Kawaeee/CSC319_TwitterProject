@@ -28,6 +28,7 @@ public class APISearch extends SearchType {
     String[] modifier = new String[]{" +exclude:retweets", " +exclude:replies", " +exclude:mentions", " +exclude:hashtags"}; //option for simple search
 
     public APISearch() throws TwitterException, IOException {
+        tweetparameter = 4;
         setAPIKey();
         //This part for Text-based user interface
         /*
@@ -117,7 +118,7 @@ public class APISearch extends SearchType {
 
             for (Status tweet : tweets) {
                 url = "https://twitter.com/" + tweet.getUser().getScreenName() + "/status/" + tweet.getId();
-                data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText(), url));
+                data.add(new Tweet(tweet.getUser().getScreenName(), String.valueOf(tweet.getCreatedAt()), tweet.getText(), url));
             }
 
         } while ((query = result.nextQuery()) != null);
@@ -240,7 +241,7 @@ public class APISearch extends SearchType {
 
         for (Status tweet : tweets) {
             url = "https://twitter.com/" + tweet.getUser().getScreenName() + "/status/" + tweet.getId();
-            data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText(), url));
+            data.add(new Tweet(tweet.getUser().getScreenName(), String.valueOf(tweet.getCreatedAt()), tweet.getText(), url));
         }
     }
 
@@ -258,7 +259,7 @@ public class APISearch extends SearchType {
                 statuses.addAll(twitter.getUserTimeline(user, page));
                 for (Status tweet : twitter.getUserTimeline(user, page)) {
                     url = "https://twitter.com/" + tweet.getUser().getScreenName() + "/status/" + tweet.getId();
-                    data.add(new Tweet(tweet.getUser().getScreenName(), tweet.getCreatedAt(), tweet.getText(), url));
+                    data.add(new Tweet(tweet.getUser().getScreenName(), String.valueOf(tweet.getCreatedAt()), tweet.getText(), url));
                 }
                 if (statuses.size() == size) {
                     break;

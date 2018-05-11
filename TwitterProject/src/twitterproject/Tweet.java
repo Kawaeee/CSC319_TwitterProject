@@ -1,16 +1,20 @@
 package twitterproject;
 
-import java.util.Date;
-
 public class Tweet {
 
     private String username;
-    private Date date;
+    private String date;
     private String text;
     private String url;
 
     //*Getter-Setter Methods
-    public Tweet(String username, Date date, String text, String url) {
+    public Tweet(String username, String date, String text) { //file search
+        this.username = username;
+        this.date = date;
+        this.text = text;
+    }
+
+    public Tweet(String username, String date, String text, String url) { //api search
         this.username = username;
         this.date = date;
         this.text = text;
@@ -33,11 +37,11 @@ public class Tweet {
         this.username = username;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

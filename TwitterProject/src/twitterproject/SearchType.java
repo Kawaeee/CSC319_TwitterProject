@@ -12,6 +12,7 @@ public class SearchType {
     public ArrayList<Tweet> data = new ArrayList<>();
     public String word;
     private String checker;
+    public int tweetparameter;
 
     public SearchType() throws TwitterException, IOException {
         // add something eiei eieiei
@@ -82,9 +83,17 @@ public class SearchType {
     }
 
     public void printResult() {
-        for (int i = 0; i < data.size(); i++) {
-            System.out.println(data.get(i).getUsername() + " --- " + data.get(i).getText() + " --- " + data.get(i).getDate() + " --- " + data.get(i).getUrl());
-            System.out.println("");
+
+        if (tweetparameter == 3) {
+            for (int i = 0; i < data.size(); i++) {
+                System.out.println(data.get(i).getUsername() + " --- " + data.get(i).getText() + " --- " + data.get(i).getDate());
+                System.out.println("");
+            }
+        } else {
+            for (int i = 0; i < data.size(); i++) {
+                System.out.println(data.get(i).getUsername() + " --- " + data.get(i).getText() + " --- " + data.get(i).getDate() + " --- " + data.get(i).getUrl());
+                System.out.println("");
+            }
         }
         System.out.println("");
         System.out.println("Keyword : " + word);
