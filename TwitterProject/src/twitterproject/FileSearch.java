@@ -2,28 +2,28 @@ package twitterproject;
 
 //import java.util.Scanner;
 import java.io.FileNotFoundException;
-import twitter4j.TwitterException;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import twitter4j.TwitterException;
 
 public class FileSearch extends SearchType {
 
     private String line;
-    //private Scanner file;
     private int count;
     CSVParser csvParser;
     String name;
     String text;
     String date;
 
-    public FileSearch() throws TwitterException, IOException {
+    public FileSearch() throws IOException,TwitterException {
         tweetparameter = 3;
+        //This part for Text-based user interface
+        /*
         System.out.println("-------------------------------------");
         System.out.println("Existing file search");
         System.out.println("-------------------------------------");
@@ -34,8 +34,10 @@ public class FileSearch extends SearchType {
         System.out.print("Input your keyword : ");
         search(SC.nextLine());
         super.continuesearch();
+         */
     }
 
+//D:\CSC319_TwitterProject\TwitterProject\test.csv
     public boolean openFile(String filename) throws IOException {
         System.out.println("-------------------------------------");
         try {

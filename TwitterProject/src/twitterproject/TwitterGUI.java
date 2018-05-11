@@ -1,5 +1,10 @@
 package twitterproject;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import twitter4j.TwitterException;
+
 public class TwitterGUI extends javax.swing.JFrame {
 
     public TwitterGUI() {
@@ -154,8 +159,13 @@ public class TwitterGUI extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.hide();
-        TwitterFile s = new TwitterFile();
-        s.setVisible(true);
+        TwitterFile twitterfile;
+        try {
+            twitterfile = new TwitterFile();
+            twitterfile.setVisible(true);
+        } catch (IOException | TwitterException ex) {
+            Logger.getLogger(TwitterGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
