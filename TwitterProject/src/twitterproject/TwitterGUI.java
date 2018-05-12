@@ -159,9 +159,9 @@ public class TwitterGUI extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.hide();
-        TwitterFile twitterfile;
+
         try {
-            twitterfile = new TwitterFile();
+            TwitterFile twitterfile = new TwitterFile();
             twitterfile.setVisible(true);
         } catch (IOException | TwitterException ex) {
             Logger.getLogger(TwitterGUI.class.getName()).log(Level.SEVERE, null, ex);
