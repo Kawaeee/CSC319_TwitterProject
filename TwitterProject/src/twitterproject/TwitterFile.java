@@ -265,7 +265,7 @@ public class TwitterFile extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String keyword = input.getText();
-        if ("".equals(keyword)) {
+        if (keyword == null) {
             model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
         }

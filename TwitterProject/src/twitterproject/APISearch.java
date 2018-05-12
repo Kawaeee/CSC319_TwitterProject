@@ -25,7 +25,10 @@ public class APISearch extends SearchType {
     private String url;
     private String filter = "";
     private String checker;
-    String[] modifier = new String[]{" +exclude:retweets", " +exclude:replies", " +exclude:mentions", " +exclude:hashtags"}; //option for simple search
+    private final String[] modifier = new String[]{" +exclude:retweets", " +exclude:replies", " +exclude:mentions", " +exclude:hashtags"}; //option for simple search
+    private int type;
+    private String user;
+    private int pageno;
 
     public APISearch() throws TwitterException, IOException {
         tweetparameter = 4;
@@ -59,7 +62,7 @@ public class APISearch extends SearchType {
         System.out.println("Choose 3 for User search");
         System.out.println("-------------------------------------");
         System.out.print("Choose one : ");
-        int type = SC.nextInt();
+        type = SC.nextInt();
         switch (type) {
             case 1:
                 System.out.println("-------------------------------------");
@@ -248,8 +251,8 @@ public class APISearch extends SearchType {
     public void userSearch(String keyword) {
         TwitterFactory tf = new TwitterFactory(obj.build());
         twitter4j.Twitter twitter = tf.getInstance();
-        int pageno = 1;
-        String user = keyword;
+        pageno = 1;
+        user = keyword;
         word = keyword;
         List statuses = new ArrayList();
         while (true) {

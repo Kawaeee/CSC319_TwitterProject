@@ -13,6 +13,9 @@ public class SearchType {
     public String word;
     private String checker;
     public int tweetparameter;
+    private FileSearch x;
+    private APISearch y;
+    private int type;
 
     public SearchType() throws TwitterException, IOException {
         // add something eiei eieiei
@@ -22,10 +25,10 @@ public class SearchType {
         try {
             switch (type) {
                 case 1:
-                    FileSearch x = new FileSearch();
+                    x = new FileSearch();
                     break;
                 case 2:
-                    APISearch y = new APISearch();
+                    y = new APISearch();
                     break;
                 case 3:
                     System.out.println("-------------------------------------");
@@ -55,7 +58,7 @@ public class SearchType {
         System.out.println("-------------------------------------");
         System.out.print("Choose one : ");
         try {
-            int type = SC.nextInt();
+            type = SC.nextInt();
             setSearchType(type);
         } catch (InputMismatchException e) {
             System.out.println("Mismatch Input , Try again.");

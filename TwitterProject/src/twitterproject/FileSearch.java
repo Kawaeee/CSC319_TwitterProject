@@ -13,14 +13,12 @@ import twitter4j.TwitterException;
 
 public class FileSearch extends SearchType {
 
-    private String line;
-    private int count;
-    CSVParser csvParser;
-    String name;
-    String text;
-    String date;
+    private CSVParser csvParser;
+    private String name;
+    private String text;
+    private String date;
 
-    public FileSearch() throws IOException,TwitterException {
+    public FileSearch() throws IOException, TwitterException {
         tweetparameter = 3;
         //This part for Text-based user interface
         /*
