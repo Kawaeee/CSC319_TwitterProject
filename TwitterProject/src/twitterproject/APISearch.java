@@ -223,22 +223,23 @@ public class APISearch extends SearchType {
      Query query = new Query("word1 word2 word3 OR word4 -word5 from:user1 OR from:user2 @user3");
      */
     public void advancedSearch() throws TwitterException, IOException{
+        String w1,w3,w4,w5,u1,u2,u3,all;
         System.out.println("-------------------------------------");
         System.out.println("Advanced Search");
         System.out.println("All of these words : ");
-        String w1 ="alice snowwhite sinoalice";
+        w1 =SC.nextLine()+" ";
         System.out.println("Any of these words : ");
-        String w3 =null;
-        String w4 =null;
+        w3 =SC.next()+" ";
+        w4 ="OR "+SC.next()+" ";
         System.out.println("None of these words : ");
-        String w5 =null;
+        w5 ="-"+SC.next()+" ";
         System.out.println("From these accounts : ");
-        String u1 =null;
-        //String u2 ="";
+        u1 ="from:"+SC.next()+" OR ";
+        u2 ="from:"+SC.next()+" ";
         System.out.println("Mentioning these accounts: : ");
-        String u3 =null;
+        u3 ="@"+SC.next();
         System.out.println("-------------------------------------");
-        String all = w1;
+        all = w1+w3+w4+w5+u1+u2+u3;
         search(all);
         this.printResult();
         super.continuesearch();
