@@ -121,7 +121,7 @@ public class TwitterFilter extends javax.swing.JFrame {
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(16, 16, 16))
                             .addGroup(BGLayout.createSequentialGroup()
-                                .addGap(0, 173, Short.MAX_VALUE)
+                                .addGap(0, 167, Short.MAX_VALUE)
                                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jToggleButton4)
                                     .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
