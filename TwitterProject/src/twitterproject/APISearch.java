@@ -104,7 +104,7 @@ public class APISearch extends SearchType {
             default:
                 System.out.println("-------------------------------------");
                 System.out.println("Mismatch Input , Try again.");
-                super.startsearch();
+                super.startSearch();
                 break;
         }
     }
@@ -307,21 +307,4 @@ public class APISearch extends SearchType {
         }
     }
 
-    public void getRatelimit() {
-        try {
-            TwitterFactory tf = new TwitterFactory(obj.build());
-            twitter4j.Twitter twitter = tf.getInstance();
-            Map<String, RateLimitStatus> rateLimitStatus = twitter.getRateLimitStatus();
-            for (String endpoint : rateLimitStatus.keySet()) {
-                RateLimitStatus status = rateLimitStatus.get(endpoint);
-                System.out.println("Endpoint: " + endpoint);
-                System.out.println(" Limit: " + status.getLimit());
-                System.out.println(" Remaining: " + status.getRemaining());
-                System.out.println(" ResetTimeInSeconds: " + status.getResetTimeInSeconds());
-                System.out.println(" SecondsUntilReset: " + status.getSecondsUntilReset());
-            }
-        } catch (TwitterException te) {
-            System.out.println("Failed to get rate limit status: " + te.getMessage());
-        }
-    }
 }

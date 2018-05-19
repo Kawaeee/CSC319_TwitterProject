@@ -7,6 +7,6 @@ public class Twitter {
 
     public static void main(String[] args) throws TwitterException, IOException {
         SearchType searcher = new SearchType();
-        searcher.startsearch();
+        searcher.startSearch();
     }
 }

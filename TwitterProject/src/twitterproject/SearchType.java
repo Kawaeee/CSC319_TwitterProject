@@ -39,7 +39,7 @@ public class SearchType {
                 default:
                     System.out.println("-------------------------------------");
                     System.out.println("Mismatch Input , Try again.");
-                    startsearch();
+                    startSearch();
             }
         } catch (IOException e) {
             System.out.println("Error IOException");
@@ -48,7 +48,7 @@ public class SearchType {
         }
     }
 
-    public void startsearch() throws TwitterException {
+    public void startSearch() throws TwitterException {
         data = new ArrayList<>(); //clear output
         System.out.println("-------------------------------------");
         System.out.println("Twitter Search");
@@ -65,7 +65,7 @@ public class SearchType {
             System.out.println("-------------------------------------");
             System.out.print("Invalid Input : " + SC.nextLine()); //clear input from nextInt();
             System.out.println();
-            startsearch();
+            startSearch();
         }
     }
 
@@ -76,7 +76,7 @@ public class SearchType {
         System.out.print("Input : ");
         checker = SC.next();
         if (checker.equalsIgnoreCase("Y")) {
-            startsearch();
+            startSearch();
         } else {
             System.out.println("-------------------------------------");
             System.out.println("Thank for using Twitter Search");
