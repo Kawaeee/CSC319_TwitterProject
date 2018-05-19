@@ -222,24 +222,24 @@ public class APISearch extends SearchType {
      Mentioning these accounts: user3
      Query query = new Query("word1 word2 word3 OR word4 -word5 from:user1 OR from:user2 @user3");
      */
-    public void advancedSearch() throws TwitterException, IOException{
-        String w1,w3,w4,w5,u1,u2,u3,all;
+    public void advancedSearch() throws TwitterException, IOException {
+        String w1, w3, w4, w5, u1, u2, u3, all;
         System.out.println("-------------------------------------");
         System.out.println("Advanced Search");
         System.out.println("All of these words : ");
-        w1 =SC.nextLine()+" ";
+        w1 = SC.nextLine() + " ";
         System.out.println("Any of these words : ");
-        w3 =SC.next()+" ";
-        w4 ="OR "+SC.next()+" ";
+        w3 = SC.next() + " ";
+        w4 = "OR " + SC.next() + " ";
         System.out.println("None of these words : ");
-        w5 ="-"+SC.next()+" ";
+        w5 = "-" + SC.next() + " ";
         System.out.println("From these accounts : ");
-        u1 ="from:"+SC.next()+" OR ";
-        u2 ="from:"+SC.next()+" ";
+        u1 = "from:" + SC.next() + " OR ";
+        u2 = "from:" + SC.next() + " ";
         System.out.println("Mentioning these accounts: : ");
-        u3 ="@"+SC.next();
+        u3 = "@" + SC.next();
         System.out.println("-------------------------------------");
-        all = w1+w3+w4+w5+u1+u2+u3;
+        all = w1 + w3 + w4 + w5 + u1 + u2 + u3;
         search(all);
         this.printResult();
         super.continuesearch();
