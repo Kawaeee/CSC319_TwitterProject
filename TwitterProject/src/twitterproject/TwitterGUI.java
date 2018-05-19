@@ -50,13 +50,13 @@ public class TwitterGUI extends javax.swing.JFrame {
         });
 
         jLabel3.setBackground(new java.awt.Color(0, 132, 180));
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 3, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Twitter Search Engine");
         jLabel3.setToolTipText("");
 
         jButton3.setBackground(new java.awt.Color(29, 202, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("From File ");
         jButton3.setBorder(null);
@@ -67,7 +67,7 @@ public class TwitterGUI extends javax.swing.JFrame {
         });
 
         jButton2.setBackground(new java.awt.Color(29, 202, 255));
-        jButton2.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("From TwitterAPI");
         jButton2.setBorder(null);
@@ -92,7 +92,7 @@ public class TwitterGUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel2)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(54, 54, 54))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +101,7 @@ public class TwitterGUI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGap(91, 91, 91))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
