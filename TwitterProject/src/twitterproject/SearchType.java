@@ -17,10 +17,6 @@ public class SearchType {
     private APISearch y;
     private int type;
 
-    public SearchType() throws TwitterException, IOException {
-        // add something eiei eieiei
-    }
-
     public void setSearchType(int type) throws TwitterException {
         try {
             switch (type) {
@@ -86,7 +82,6 @@ public class SearchType {
     }
 
     public void printResult() {
-
         if (tweetparameter == 3) {
             for (int i = 0; i < data.size(); i++) {
                 System.out.println(data.get(i).getUsername() + " --- " + data.get(i).getText() + " --- " + data.get(i).getDate());

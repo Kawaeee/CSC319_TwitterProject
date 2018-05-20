@@ -231,14 +231,12 @@ public class TwitterFilterResult extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
         this.hide();
         TwitterAPI twittergui02page = new TwitterAPI();
         twittergui02page.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -298,21 +296,18 @@ public class TwitterFilterResult extends javax.swing.JFrame {
         try {
             InputStream is = TwitterGUI.class.getResourceAsStream("Gotham-Black.ttf");
             Font font = Font.createFont(Font.TRUETYPE_FONT, is);
-
             Font label3size = font.deriveFont(14f);
             jLabel3.setFont(label3size);
             jLabel4.setFont(label3size);
             jLabel9.setFont(label3size);
             jButton3.setFont(label3size);
             jButton5.setFont(label3size);
-
             return font;
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(TwitterGUI.class.getName()).log(Level.SEVERE, null, ex);
             return super.getFont();
         }
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JTextField amount;

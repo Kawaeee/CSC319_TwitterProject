@@ -223,18 +223,16 @@ public class TwitterLastest extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
         this.hide();
         TwitterAPI newpageTwitterGUI = new TwitterAPI();
         newpageTwitterGUI.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_inputActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -291,14 +289,12 @@ public class TwitterLastest extends javax.swing.JFrame {
         try {
             InputStream is = TwitterGUI.class.getResourceAsStream("Gotham-Black.ttf");
             Font font = Font.createFont(Font.TRUETYPE_FONT, is);
-
             Font label3size = font.deriveFont(14f);
             jLabel1.setFont(label3size);
             jLabel2.setFont(label3size);
             jLabel9.setFont(label3size);
             jButton3.setFont(label3size);
             jButton4.setFont(label3size);
-
             return font;
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(TwitterGUI.class.getName()).log(Level.SEVERE, null, ex);

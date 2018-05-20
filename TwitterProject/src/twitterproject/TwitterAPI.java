@@ -5,7 +5,7 @@ public class TwitterAPI extends javax.swing.JFrame {
     public TwitterAPI() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -261,7 +261,6 @@ public class TwitterAPI extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JButton jButton1;

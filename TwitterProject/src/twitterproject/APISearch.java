@@ -6,11 +6,9 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import twitter4j.Paging;
 import twitter4j.Query;
 import twitter4j.QueryResult;
-import twitter4j.RateLimitStatus;
 import twitter4j.Status;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -50,8 +48,6 @@ public class APISearch extends SearchType {
                 .setOAuthConsumerSecret("")
                 .setOAuthAccessToken("")
                 .setOAuthAccessTokenSecret("");
-
-        //.setTweetModeExtended(true);
     }
 
     public void setSearch() throws TwitterException, IOException {
@@ -215,14 +211,6 @@ public class APISearch extends SearchType {
         }
     }
 
-    /*
-     All of these words: word1 word2
-     Any of these words: word3 word4
-     None of these words: word5
-     From these accounts: user1 user2
-     Mentioning these accounts: user3
-     Query query = new Query("word1 word2 word3 OR word4 -word5 from:user1 OR from:user2 @user3");
-     */
     public void advancedSearch() throws TwitterException, IOException {
         String w1, w3, w4, w5, u1, u2, u3, all;
         System.out.println("-------------------------------------");

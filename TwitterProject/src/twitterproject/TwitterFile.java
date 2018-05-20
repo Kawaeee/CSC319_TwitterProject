@@ -277,16 +277,14 @@ public class TwitterFile extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         this.hide();
         TwitterGUI newpageTwitterGUI = new TwitterGUI();
         newpageTwitterGUI.setVisible(true);
@@ -393,16 +391,12 @@ public class TwitterFile extends javax.swing.JFrame {
             jLabel5.setFont(label3size);
             jLabel4.setFont(label3size);
             jLabel3.setFont(label3size);
-            // jTable1.setFont(label3size);
-
             return font;
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(TwitterGUI.class.getName()).log(Level.SEVERE, null, ex);
             return super.getFont();
         }
     }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JTextField amount;

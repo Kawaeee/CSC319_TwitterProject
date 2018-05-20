@@ -9,9 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import twitter4j.TwitterException;
 
 public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
-    /**
-     * Creates new form TwitterAdvanceSearchResult
-     */
+    
     APISearch API;
     DefaultTableModel model;
     String wo1="";
@@ -215,20 +213,17 @@ public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         this.hide();
         TwitterAdvanceSearch newtwitterguipage = new TwitterAdvanceSearch();
         newtwitterguipage.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputActionPerformed
-        // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_inputActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -295,7 +290,6 @@ public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField amount;
     private javax.swing.JTextField input;

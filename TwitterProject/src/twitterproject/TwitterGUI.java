@@ -2,7 +2,6 @@ package twitterproject;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
@@ -162,9 +161,7 @@ public class TwitterGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
         this.hide();
-
         try {
             TwitterFile twitterfile = new TwitterFile();
             twitterfile.setVisible(true);
@@ -174,14 +171,12 @@ public class TwitterGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         this.hide();
         TwitterAPI s = new TwitterAPI();
         s.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -227,14 +222,12 @@ public class TwitterGUI extends javax.swing.JFrame {
             Font font = Font.createFont(Font.TRUETYPE_FONT, is);
             Font label3size = font.deriveFont(36f);
             jLabel3.setFont(label3size);
-            
             return font;
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(TwitterGUI.class.getName()).log(Level.SEVERE, null, ex);
             return super.getFont();
         }
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

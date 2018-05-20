@@ -1,6 +1,5 @@
 package twitterproject;
 
-//import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
@@ -35,7 +34,6 @@ public class FileSearch extends SearchType {
          */
     }
 
-//D:\CSC319_TwitterProject\TwitterProject\test.csv
     public boolean openFile(String filename) throws IOException {
         System.out.println("-------------------------------------");
         try {
@@ -49,7 +47,6 @@ public class FileSearch extends SearchType {
             return false;
         }
     }
-    //id screen_name text_tweet location device created_at
 
     public void search(String keyword) throws IOException {
         word = keyword;
@@ -60,10 +57,8 @@ public class FileSearch extends SearchType {
             if (name.contains(keyword) || text.contains(keyword)) {
                 data.add(new Tweet(name, date, text));
             }
-            // Accessing Values by Column Index
         }
         super.printResult();
-
     }
 
     @Override
