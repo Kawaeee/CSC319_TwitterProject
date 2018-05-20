@@ -2,7 +2,8 @@ package twitterproject;
 
 
 public class TwitterAdvanceSearch extends javax.swing.JFrame {
-
+    String w1, w2,w3, w4, u1, u2, u3, all;
+    String[] asdf = new String[]{};
     public TwitterAdvanceSearch() {
         initComponents();
     }
@@ -148,13 +149,13 @@ public class TwitterAdvanceSearch extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel11.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
-        jLabel11.setText("From this person");
+        jLabel11.setText("From this account");
 
         jLabel12.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
-        jLabel12.setText("To this person");
+        jLabel12.setText("To this account");
 
         jLabel13.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
-        jLabel13.setText("Referencing this person");
+        jLabel13.setText("Mentioning these account");
 
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,7 +329,7 @@ public class TwitterAdvanceSearch extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -347,9 +348,43 @@ public class TwitterAdvanceSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        if(jTextField1.getText().isEmpty()){
+            w1="";
+        }else{
+            w1=jTextField1.getText()+" ";
+        }
+        if(jTextField2.getText().isEmpty()){
+            w2="";
+        }else{
+            w2="'"+jTextField2.getText()+"' ";
+        }
+        if(jTextField4.getText().isEmpty()){
+            w4="";
+        }else{
+            w4="-"+jTextField4.getText()+" ";
+        }
+        if(jTextField6.getText().isEmpty()){
+            u1="";
+        }else{
+            u1="from:"+jTextField6.getText()+" ";
+        }
+        if(jTextField7.getText().isEmpty()){
+            u2="";
+        }else{
+            u2="to:"+jTextField7.getText()+" ";
+        }
+        if(jTextField8.getText().isEmpty()){
+            u3="";
+        }else{
+            u3="@"+jTextField7.getText()+" ";
+        }
+        //w3=jTextField3.getText();
+        //String w33="";
+        //w33.replaceAll(" ", " OR ");
+        //w4=;         
+        all=w1+w2+w3+w4+u1+u2+u3;
         this.hide();
-        TwitterAdvanceSearchResult result = new TwitterAdvanceSearchResult();
+        TwitterAdvanceSearchResult result = new TwitterAdvanceSearchResult(all);
         result.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -9,18 +9,21 @@ import javax.swing.table.DefaultTableModel;
 import twitter4j.TwitterException;
 
 public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
-
     /**
      * Creates new form TwitterAdvanceSearchResult
      */
     APISearch API;
     DefaultTableModel model;
-
+    String wo1="";
     public TwitterAdvanceSearchResult() {
         initComponents();
         setTable();
     }
-
+    public TwitterAdvanceSearchResult(String wo){
+        initComponents();
+        wo1=wo;
+        input.setText(wo);
+    }
     public void setTable() {
         jTable1.getTableHeader().setFont(new Font("SansSerif", Font.BOLD, 12));
         jTable1.getTableHeader().setForeground(Color.blue);
@@ -225,6 +228,7 @@ public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
 
     private void inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_inputActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
