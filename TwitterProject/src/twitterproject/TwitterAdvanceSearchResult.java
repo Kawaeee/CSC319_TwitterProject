@@ -1,11 +1,12 @@
 package twitterproject;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import twitter4j.TwitterException;
-
 
 public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
 
@@ -17,6 +18,12 @@ public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
 
     public TwitterAdvanceSearchResult() {
         initComponents();
+        setTable();
+    }
+
+    public void setTable() {
+        jTable1.getTableHeader().setFont(new Font("SansSerif", Font.BOLD, 12));
+        jTable1.getTableHeader().setForeground(Color.blue);
     }
 
     /**
@@ -123,8 +130,6 @@ public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel2.setText("Tweets");
 
-        jTable1.setBackground(new java.awt.Color(0, 172, 237));
-        jTable1.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

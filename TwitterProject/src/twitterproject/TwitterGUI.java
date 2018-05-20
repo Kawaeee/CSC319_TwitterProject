@@ -1,6 +1,10 @@
 package twitterproject;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import twitter4j.TwitterException;
@@ -9,6 +13,7 @@ public class TwitterGUI extends javax.swing.JFrame {
 
     public TwitterGUI() {
         initComponents();
+
     }
 
     /**
@@ -213,6 +218,21 @@ public class TwitterGUI extends javax.swing.JFrame {
                 new TwitterGUI().setVisible(true);
             }
         });
+    }
+
+    @Override
+    public Font getFont() {
+        try {
+            InputStream is = TwitterGUI.class.getResourceAsStream("Gotham-Black.ttf");
+            Font font = Font.createFont(Font.TRUETYPE_FONT, is);
+            Font label3size = font.deriveFont(36f);
+            jLabel3.setFont(label3size);
+            
+            return font;
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(TwitterGUI.class.getName()).log(Level.SEVERE, null, ex);
+            return super.getFont();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

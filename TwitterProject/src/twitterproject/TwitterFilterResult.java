@@ -1,6 +1,10 @@
 package twitterproject;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -14,11 +18,18 @@ public class TwitterFilterResult extends javax.swing.JFrame {
 
     public TwitterFilterResult() {
         initComponents();
+        setTable();
     }
 
     public TwitterFilterResult(String filter) {
         initComponents();
         this.filter = filter;
+        setTable();
+    }
+
+    public void setTable() {
+        jTable1.getTableHeader().setFont(new Font("SansSerif", Font.BOLD, 12));
+        jTable1.getTableHeader().setForeground(Color.blue);
     }
 
     /**
@@ -49,7 +60,7 @@ public class TwitterFilterResult extends javax.swing.JFrame {
 
         BG.setBackground(new java.awt.Color(192, 222, 237));
 
-        jLabel9.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
+        jLabel9.setFont(getFont());
         jLabel9.setText("Keywords");
 
         jButton3.setBackground(new java.awt.Color(29, 202, 255));
@@ -122,9 +133,9 @@ public class TwitterFilterResult extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(347, 347, 347)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(344, 344, 344)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -132,10 +143,12 @@ public class TwitterFilterResult extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton7))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(jButton7)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
@@ -179,7 +192,7 @@ public class TwitterFilterResult extends javax.swing.JFrame {
                     .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -228,7 +241,7 @@ public class TwitterFilterResult extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton7ActionPerformed
-    
+
     public void addRowToJTable() {
         Object rowData[] = new Object[4];
         for (int i = 0; i < API.data.size(); i++) {
@@ -243,6 +256,7 @@ public class TwitterFilterResult extends javax.swing.JFrame {
     public void getAmountofTweets() {
         amount.setText("" + API.data.size());
     }
+
     /**
      * @param args the command line arguments
      */
@@ -277,6 +291,26 @@ public class TwitterFilterResult extends javax.swing.JFrame {
                 new TwitterFilterResult().setVisible(true);
             }
         });
+    }
+
+    @Override
+    public Font getFont() {
+        try {
+            InputStream is = TwitterGUI.class.getResourceAsStream("Gotham-Black.ttf");
+            Font font = Font.createFont(Font.TRUETYPE_FONT, is);
+
+            Font label3size = font.deriveFont(14f);
+            jLabel3.setFont(label3size);
+            jLabel4.setFont(label3size);
+            jLabel9.setFont(label3size);
+            jButton3.setFont(label3size);
+            jButton5.setFont(label3size);
+
+            return font;
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(TwitterGUI.class.getName()).log(Level.SEVERE, null, ex);
+            return super.getFont();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

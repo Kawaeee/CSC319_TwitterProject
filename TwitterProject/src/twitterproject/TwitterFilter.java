@@ -1,10 +1,19 @@
 package twitterproject;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class TwitterFilter extends javax.swing.JFrame {
 
     String filter = "";
     String[] modifier = new String[]{" +exclude:retweets", " +exclude:replies", " +exclude:mentions", " +exclude:hashtags"}; //option for simple search
-
+    Color twitter = new Color(29, 202, 255);
+    
     public TwitterFilter() {
         initComponents();
     }
@@ -154,9 +163,7 @@ public class TwitterFilter extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BGLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BGLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(139, 139, 139))
+                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BGLayout.createSequentialGroup()
                                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,17 +171,19 @@ public class TwitterFilter extends javax.swing.JFrame {
                                     .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(168, 168, 168))
-                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BGLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(131, 131, 131))))))
         );
         BGLayout.setVerticalGroup(
             BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BGLayout.createSequentialGroup()
                 .addComponent(jButton4)
-                .addGap(41, 41, 41)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel2)
-                .addGap(41, 41, 41)
+                .addGap(33, 33, 33)
                 .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,8 +215,10 @@ public class TwitterFilter extends javax.swing.JFrame {
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
         if (jToggleButton4.isSelected()) {
             filter = filter.concat(modifier[3]);
+            jToggleButton4.setBackground(Color.red);
         } else {
             filter = filter.replace(modifier[3], "");
+            jToggleButton4.setBackground(twitter);
         }
     }//GEN-LAST:event_jToggleButton4ActionPerformed
 
@@ -226,24 +237,31 @@ public class TwitterFilter extends javax.swing.JFrame {
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
         if (jToggleButton3.isSelected()) {
             filter = filter.concat(modifier[2]);
+            jToggleButton3.setBackground(Color.red);
         } else {
             filter = filter.replace(modifier[2], "");
+            jToggleButton3.setBackground(twitter);
         }
     }//GEN-LAST:event_jToggleButton3ActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         if (jToggleButton2.isSelected()) {
             filter = filter.concat(modifier[1]);
+            jToggleButton2.setBackground(Color.red);
         } else {
             filter = filter.replace(modifier[1], "");
+
+            jToggleButton2.setBackground(twitter);
         }
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         if (jToggleButton1.isSelected()) {
             filter = filter.concat(modifier[0]);
+            jToggleButton1.setBackground(Color.red);
         } else {
             filter = filter.replace(modifier[0], "");
+            jToggleButton1.setBackground(twitter);
         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
@@ -282,6 +300,30 @@ public class TwitterFilter extends javax.swing.JFrame {
                 new TwitterFilter().setVisible(true);
             }
         });
+    }
+
+    @Override
+    public Font getFont() {
+        try {
+            InputStream is = TwitterGUI.class.getResourceAsStream("Gotham-Black.ttf");
+            Font font = Font.createFont(Font.TRUETYPE_FONT, is);
+
+            Font label3size = font.deriveFont(18f);
+            Font label4size = font.deriveFont(26f);
+            jToggleButton1.setFont(label3size);
+            jToggleButton2.setFont(label3size);
+            jToggleButton3.setFont(label3size);
+            jToggleButton4.setFont(label3size);
+            jLabel2.setFont(label4size);
+            jButton1.setFont(label3size);
+            jButton5.setFont(label3size);
+            jButton4.setFont(label3size);
+
+            return font;
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(TwitterGUI.class.getName()).log(Level.SEVERE, null, ex);
+            return super.getFont();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
