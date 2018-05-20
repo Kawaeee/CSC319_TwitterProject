@@ -356,7 +356,14 @@ public class TwitterAdvanceSearch extends javax.swing.JFrame {
         if(jTextField2.getText().isEmpty()){
             w2="";
         }else{
-            w2="'"+jTextField2.getText()+"' ";
+            w2="'"+jTextField2.getText()+"'";
+        }
+        if(jTextField3.getText().isEmpty()){
+            w3="";
+        }else{
+            w3=jTextField3.getText();
+            String or=w3.replaceAll(" ", " OR ");
+            w3 = or+"";
         }
         if(jTextField4.getText().isEmpty()){
             w4="";
@@ -366,22 +373,24 @@ public class TwitterAdvanceSearch extends javax.swing.JFrame {
         if(jTextField6.getText().isEmpty()){
             u1="";
         }else{
-            u1="from:"+jTextField6.getText()+" ";
+            u1="from:"+jTextField6.getText();
+            String u11=u1.replaceAll(" ", " OR from:");
+            u1 = u11+"";
         }
         if(jTextField7.getText().isEmpty()){
             u2="";
         }else{
-            u2="to:"+jTextField7.getText()+" ";
+            u2="to:"+jTextField7.getText();
+            String u22=u2.replaceAll(" ", " OR to:");
+            u2 = u22+"";
         }
         if(jTextField8.getText().isEmpty()){
             u3="";
         }else{
-            u3="@"+jTextField7.getText()+" ";
-        }
-        //w3=jTextField3.getText();
-        //String w33="";
-        //w33.replaceAll(" ", " OR ");
-        //w4=;         
+            u3="@"+jTextField8.getText();
+            String u33=u3.replaceAll(" ", " OR @");
+            u3 = u33+"";
+        }     
         all=w1+w2+w3+w4+u1+u2+u3;
         this.hide();
         TwitterAdvanceSearchResult result = new TwitterAdvanceSearchResult(all);
