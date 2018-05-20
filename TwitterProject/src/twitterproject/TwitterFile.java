@@ -54,9 +54,11 @@ public class TwitterFile extends javax.swing.JFrame {
 
         BG.setBackground(new java.awt.Color(192, 222, 237));
 
+        jLabel5.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel5.setText("Choose your file path:");
 
         jButton1.setBackground(new java.awt.Color(29, 202, 255));
+        jButton1.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Browse");
         jButton1.setBorder(null);
@@ -67,6 +69,7 @@ public class TwitterFile extends javax.swing.JFrame {
         });
 
         jButton2.setBackground(new java.awt.Color(29, 202, 255));
+        jButton2.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("<< Back");
         jButton2.setBorder(null);
@@ -102,11 +105,14 @@ public class TwitterFile extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
+        jLabel6.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel6.setText("Tweets");
 
+        jLabel4.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel4.setText("Amount of Tweets :");
 
         jButton3.setBackground(new java.awt.Color(29, 202, 255));
+        jButton3.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Enter");
         jButton3.setBorder(null);
@@ -116,6 +122,7 @@ public class TwitterFile extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel3.setText("Keywords");
 
         input.addActionListener(new java.awt.event.ActionListener() {
@@ -158,45 +165,41 @@ public class TwitterFile extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton6)
-                .addGap(0, 0, 0))
+            .addComponent(jButton6)
         );
 
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
         BG.setLayout(BGLayout);
         BGLayout.setHorizontalGroup(
             BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BGLayout.createSequentialGroup()
-                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(BGLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel6))
-                            .addGroup(BGLayout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(BGLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1)))
-                .addGap(0, 0, 0))
+            .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(BGLayout.createSequentialGroup()
+                    .addGap(21, 21, 21)
+                    .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(BGLayout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(17, 17, 17)
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel6))
+                        .addGroup(BGLayout.createSequentialGroup()
+                            .addGap(8, 8, 8)
+                            .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGroup(BGLayout.createSequentialGroup()
+                    .addGap(15, 15, 15)
+                    .addComponent(jLabel5)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jTextField1)))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         BGLayout.setVerticalGroup(

@@ -47,7 +47,11 @@ public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(192, 222, 237));
 
+        jButton2.setBackground(new java.awt.Color(29, 202, 255));
+        jButton2.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("<< Back");
+        jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -93,6 +97,7 @@ public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        jLabel9.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel9.setText("Keywords");
 
         input.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +107,7 @@ public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
         });
 
         jButton3.setBackground(new java.awt.Color(29, 202, 255));
+        jButton3.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Enter");
         jButton3.setBorder(null);
@@ -111,11 +117,14 @@ public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel1.setText("Amount of Tweets :");
 
+        jLabel2.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel2.setText("Tweets");
 
         jTable1.setBackground(new java.awt.Color(0, 172, 237));
+        jTable1.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -143,9 +152,6 @@ public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -160,8 +166,11 @@ public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
                                 .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel2))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,9 +185,9 @@ public class TwitterAdvanceSearchResult extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
-                .addGap(7, 7, 7)
-                .addComponent(jButton2)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

@@ -44,6 +44,7 @@ public class TwitterLastest extends javax.swing.JFrame {
 
         BG2.setBackground(new java.awt.Color(192, 222, 237));
 
+        jLabel9.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel9.setText("Keywords");
 
         input.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +54,7 @@ public class TwitterLastest extends javax.swing.JFrame {
         });
 
         jButton3.setBackground(new java.awt.Color(29, 202, 255));
+        jButton3.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Enter");
         jButton3.setBorder(null);
@@ -63,6 +65,7 @@ public class TwitterLastest extends javax.swing.JFrame {
         });
 
         jButton4.setBackground(new java.awt.Color(29, 202, 255));
+        jButton4.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("<< Back");
         jButton4.setBorder(null);
@@ -93,8 +96,10 @@ public class TwitterLastest extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
+        jLabel1.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel1.setText("Amount of Tweets :");
 
+        jLabel2.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel2.setText("Tweets");
 
         jPanel2.setBackground(new java.awt.Color(29, 202, 255));
@@ -279,14 +284,11 @@ public class TwitterLastest extends javax.swing.JFrame {
     private javax.swing.JTextField input;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;

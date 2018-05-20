@@ -49,9 +49,11 @@ public class TwitterFilterResult extends javax.swing.JFrame {
 
         BG.setBackground(new java.awt.Color(192, 222, 237));
 
+        jLabel9.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel9.setText("Keywords");
 
         jButton3.setBackground(new java.awt.Color(29, 202, 255));
+        jButton3.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Enter");
         jButton3.setBorder(null);
@@ -62,6 +64,7 @@ public class TwitterFilterResult extends javax.swing.JFrame {
         });
 
         jButton5.setBackground(new java.awt.Color(29, 202, 255));
+        jButton5.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("< Back");
         jButton5.setBorder(null);
@@ -90,8 +93,10 @@ public class TwitterFilterResult extends javax.swing.JFrame {
         jTable1.setColumnSelectionAllowed(true);
         jScrollPane4.setViewportView(jTable1);
 
+        jLabel3.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel3.setText("Amount of Tweets :");
 
+        jLabel4.setFont(new java.awt.Font("Gotham Black", 0, 12)); // NOI18N
         jLabel4.setText("Tweets");
 
         jPanel2.setBackground(new java.awt.Color(29, 202, 255));
@@ -140,24 +145,22 @@ public class TwitterFilterResult extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(BGLayout.createSequentialGroup()
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(BGLayout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel4))
-                        .addGroup(BGLayout.createSequentialGroup()
-                            .addGap(43, 43, 43)
-                            .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(BGLayout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(BGLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(BGLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4))))
                     .addGroup(BGLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))

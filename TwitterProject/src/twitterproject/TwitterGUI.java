@@ -50,13 +50,13 @@ public class TwitterGUI extends javax.swing.JFrame {
         });
 
         jLabel3.setBackground(new java.awt.Color(0, 132, 180));
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Gotham Black", 0, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Twitter Search Engine");
         jLabel3.setToolTipText("");
 
         jButton3.setBackground(new java.awt.Color(29, 202, 255));
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Gotham Black", 0, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("From File ");
         jButton3.setBorder(null);
@@ -67,7 +67,7 @@ public class TwitterGUI extends javax.swing.JFrame {
         });
 
         jButton2.setBackground(new java.awt.Color(29, 202, 255));
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Gotham Black", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("From TwitterAPI");
         jButton2.setBorder(null);
