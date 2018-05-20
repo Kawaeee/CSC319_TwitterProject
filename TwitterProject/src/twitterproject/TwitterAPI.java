@@ -1,5 +1,12 @@
 package twitterproject;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class TwitterAPI extends javax.swing.JFrame {
 
     public TwitterAPI() {
@@ -89,9 +96,9 @@ public class TwitterAPI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(54, 54, 54))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,6 +268,26 @@ public class TwitterAPI extends javax.swing.JFrame {
             }
         });
     }
+    
+    @Override
+    public Font getFont() {
+        try {
+            InputStream is = TwitterGUI.class.getResourceAsStream("Gotham-Black.ttf");
+            Font font = Font.createFont(Font.TRUETYPE_FONT, is);
+            Font label3size = font.deriveFont(18f);
+            jButton1.setFont(label3size);
+            jButton5.setFont(label3size);
+            jButton3.setFont(label3size);
+            jButton4.setFont(label3size);
+            jButton2.setFont(label3size);
+
+            return font;
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(TwitterGUI.class.getName()).log(Level.SEVERE, null, ex);
+            return super.getFont();
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private javax.swing.JButton jButton1;

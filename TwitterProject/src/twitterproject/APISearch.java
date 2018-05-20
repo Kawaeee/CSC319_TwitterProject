@@ -43,8 +43,7 @@ public class APISearch extends SearchType {
 
     public void setAPIKey() {
         this.obj = new ConfigurationBuilder();
-        this.obj.setDebugEnabled(true)
-                .setOAuthConsumerKey("")
+        this.obj.setOAuthConsumerKey("")
                 .setOAuthConsumerSecret("")
                 .setOAuthAccessToken("")
                 .setOAuthAccessTokenSecret("");

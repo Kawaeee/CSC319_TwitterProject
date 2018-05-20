@@ -221,6 +221,9 @@ public class TwitterGUI extends javax.swing.JFrame {
             InputStream is = TwitterGUI.class.getResourceAsStream("Gotham-Black.ttf");
             Font font = Font.createFont(Font.TRUETYPE_FONT, is);
             Font label3size = font.deriveFont(36f);
+            Font label4size = font.deriveFont(18f);
+            jButton2.setFont(label4size);
+            jButton3.setFont(label4size);
             jLabel3.setFont(label3size);
             return font;
         } catch (FontFormatException | IOException ex) {
